@@ -102,3 +102,26 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# Working datasets
+*.csv
+data/
+
+# JetBrains IDEs settings
+.idea/
+
+# MS Visual Studio Code (and IonIDE workaround)
+.vscode/
+.ionide/
+
+#Old KDE settings
+.directory
+
+# Experiments
+scratchpad.py
+structured_scratchpad.py
+jupytest.ipynb
+structured_jupytest.ipynb
+
+# Cleanup files
+.veryold/
