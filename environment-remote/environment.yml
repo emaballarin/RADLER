@@ -24,7 +24,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.3.7
+  - redis-py=3.3.8
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
