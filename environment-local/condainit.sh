@@ -52,8 +52,9 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 # Deactivate environment
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
-# Install: (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod.
+# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod.
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
+pip install git+https://github.com/SurrealAI/torchx-public.git
 pip install git+https://github.com/williamFalcon/pytorch-lightning.git
 CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
 pip install git+https://github.com/hylang/hy.git

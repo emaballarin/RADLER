@@ -107,6 +107,10 @@ venv.bak/
 *.csv
 data/
 
+# Working PyTorch datasets
+*.pt
+*.pth
+
 # JetBrains IDEs settings
 .idea/
 
