@@ -358,3 +358,4 @@ dependencies:
       - git+https://github.com/cool-RR/PySnooper.git
       - git+https://github.com/floringogianu/augment.git
       - git+https://github.com/tudor-berariu/liftoff.git
+      - http://ballarin.cc/mirrorsrv/artelysknitro/knitropython.tar.gz
