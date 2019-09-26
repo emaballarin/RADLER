@@ -297,7 +297,7 @@ dependencies:
       - git+https://github.com/emaballarin/numpyro.git
       - git+https://github.com/pyro-ppl/funsor.git
       - git+https://github.com/harvardnlp/namedtensor
-      # zmq if a "fake dependency"
+      # zmq is a "fake dependency"
       - zmq
       - wolframclient
       - git+https://github.com/NeuralEnsemble/lazyarray.git
