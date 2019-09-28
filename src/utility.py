@@ -27,3 +27,6 @@ def model_unflatten(flatmodel: th.Tensor, as_dictmodel: collections.OrderedDict)
 
     return collections.OrderedDict(modeldict)
 
+
+def model_weightload():
+    return None
