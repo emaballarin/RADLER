@@ -319,7 +319,6 @@ dependencies:
       - git+https://github.com/probprog/pyprob.git
       - git+https://github.com/achaiah/pywick.git
       - git+https://github.com/unit8co/vegans.git
-      - rpy2
       - googledrivedownloader
       - plyfile
       - nvidia-ml-py3
