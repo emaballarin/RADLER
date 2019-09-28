@@ -306,7 +306,7 @@ dependencies:
       - git+https://github.com/hyperopt/hyperopt.git
       - git+https://github.com/hyperopt/hyperopt-sklearn.git
       - astor
-      - funcparserlib
+      - git+https://github.com/vlasovskikh/funcparserlib.git
       - art
       - livelossplot
       - pycm
