@@ -279,7 +279,7 @@ dependencies:
       - git+https://github.com/IBM/adversarial-robustness-toolbox.git
       - ax-platform
       - optuna
-      - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.8.0.dev4-cp37-cp37m-manylinux1_x86_64.whl
+      - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.8.0.dev5-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
       - https://storage.googleapis.com/jax-releases/cuda100/jaxlib-0.1.28-cp37-none-linux_x86_64.whl
       - jax
