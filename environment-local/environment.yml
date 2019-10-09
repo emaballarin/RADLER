@@ -30,7 +30,7 @@ dependencies:
   - tqdm>=4.35
   ### FIX-PINNED ###
   # Pin opt_einsum to a tagged version, synced with the latest version
-  - opt_einsum=3.0.1
+  - opt_einsum=3.1.0
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
   - pillow=6.0
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
@@ -281,7 +281,7 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.8.0.dev5-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda100/jaxlib-0.1.28-cp37-none-linux_x86_64.whl
+      - https://storage.googleapis.com/jax-releases/cuda100/jaxlib-0.1.31-cp37-none-linux_x86_64.whl
       - jax
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git

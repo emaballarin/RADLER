@@ -1,5 +1,4 @@
-# Reference implementation: https://github.com/pytorch/examples/blob/master/mnist/main.py
-# with slight modifications.
+# Reference implementation: https://github.com/pytorch/examples/blob/master/mnist/main.py with slight modifications.
 
 from __future__ import print_function
 import argparse
