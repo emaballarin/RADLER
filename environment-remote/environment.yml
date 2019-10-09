@@ -216,9 +216,11 @@ dependencies:
   - simplegeneric
   - six
   - skorch
+  - skrebate
   - smmap2
   - spacy
   - srsly
+  - structlog
   - swig
   - sympy
   - sqlalchemy
@@ -358,3 +360,5 @@ dependencies:
       - git+https://github.com/floringogianu/augment.git
       - git+https://github.com/tudor-berariu/liftoff.git
       - http://ballarin.cc/mirrorsrv/artelysknitro/knitropython.tar.gz
+      - git+https://github.com/ElementAI/baal.git
+      - git+https://github.com/Diviyan-Kalainathan/CausalDiscoveryToolbox.git
