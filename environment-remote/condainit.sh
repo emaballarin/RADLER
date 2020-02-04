@@ -47,17 +47,19 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 # Deactivate environment
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
-# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod.
+# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod (8) Hydra (9) NestedTensor.
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 pip install git+https://github.com/SurrealAI/torchx-public.git
-pip install git+https://github.com/williamFalcon/pytorch-lightning.git
+pip install --no-cache-dir --upgrade --no-deps --force-reinstall git+https://github.com/williamFalcon/pytorch-lightning.git
 CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
 pip install git+https://github.com/hylang/hy.git
-pip install --upgrade --no-deps --pre cupy-cuda100
+pip install --upgrade --no-deps --pre cupy-cuda101
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git
-pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/weekly/cuda/10.0 nvidia-dali-weekly
+#pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/weekly/cuda/10.1 nvidia-dali-weekly
 HOROVOD_NCCL_HOME="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME" HOROVOD_NCCL_INCLUDE="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/include" HOROVOD_NCCL_LIB="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/lib" HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod
+pip install hydra-core --pre
+pip install git+https://github.com/pytorch/nestedtensor.git
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
 
@@ -112,7 +114,7 @@ pip install torch-scatter
 pip install torch-sparse
 pip install torch-cluster
 pip install torch-spline-conv
-# Vanilla pip version is incompatible with PyTorch 1.2
+# Vanilla pip version is incompatible with PyTorch >= 1.2
 pip install git+https://github.com/rusty1s/pytorch_geometric.git
 
 export PATH="$PTG_PREPATH"

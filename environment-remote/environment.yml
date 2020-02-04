@@ -18,13 +18,13 @@ channels:
 dependencies:
   ### LATEST-PINNED ###
   # Keep Python pinned, but in sync with latest version.!
-  - python=3.7.4
+  - python=3.7.6
   # Use MKL to provide BLAS, latest version from the defaults channel.
   - blas=*=mkl
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.3.8
+  - redis-py=3.3.11
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -32,11 +32,22 @@ dependencies:
   # Pin opt_einsum to a tagged version, synced with the latest version
   - opt_einsum=3.1.0
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
-  - pillow=6.0
+  - pillow=7.0
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
   - networkx=2.2
   # Pin FlatBuffers (req. by PyProb)
   - flatbuffers=1.10
+  # Pin ThinC dependencies
+  - cython-blis=0.4.1
+  - cymem=2.0.3
+  - murmurhash=1.0.2
+  - preshed=3.0.2
+  - pydantic=1.4
+  - wasabi=0.6
+  - immutables=0.11
+  # PyTorch and the like
+  - pytorch=1.4
+  - captum=0.1
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -193,7 +204,6 @@ dependencies:
   - pytest-runner
   - python-dateutil
   - python-graphviz
-  - pytorch
   - pytz
   - pyyaml
   - pyzmq
@@ -282,9 +292,9 @@ dependencies:
       - git+https://github.com/IBM/adversarial-robustness-toolbox.git
       - ax-platform
       - optuna
-      - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.8.0.dev5-cp37-cp37m-manylinux1_x86_64.whl
+      - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda100/jaxlib-0.1.31-cp37-none-linux_x86_64.whl
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.38-cp37-none-linux_x86_64.whl
       - jax
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
@@ -295,10 +305,11 @@ dependencies:
       - git+https://github.com/facebookresearch/qhoptim.git
       - observations
       - unification
+      - git+https://github.com/pyro-ppl/pyro-api.git
       - git+https://github.com/pyro-ppl/pyro.git
-      #- git+https://github.com/pyro-ppl/numpyro.git
-      - git+https://github.com/emaballarin/numpyro.git
+      - git+https://github.com/pyro-ppl/numpyro.git
       - git+https://github.com/pyro-ppl/funsor.git
+      - git+https://github.com/pyro-ppl/brmp.git
       - git+https://github.com/harvardnlp/namedtensor
       # zmq is a "fake dependency"
       - zmq
@@ -363,3 +374,11 @@ dependencies:
       - http://ballarin.cc/mirrorsrv/artelysknitro/knitropython.tar.gz
       - git+https://github.com/ElementAI/baal.git
       - git+https://github.com/Diviyan-Kalainathan/CausalDiscoveryToolbox.git
+      - dataclasses
+      - contextvars
+      - catalogue
+      - ml_datasets
+      - thinc==8.0.0a0
+      - omegaconf
+      - git+https://github.com/tristandeleu/pytorch-meta.git
+      - frozendict
