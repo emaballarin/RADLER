@@ -47,7 +47,7 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 # Deactivate environment
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
-# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod (8) Hydra (9) NestedTensor.
+# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod (8) Hydra.
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 pip install git+https://github.com/SurrealAI/torchx-public.git
 pip install --no-cache-dir --upgrade --no-deps --force-reinstall git+https://github.com/williamFalcon/pytorch-lightning.git
@@ -59,7 +59,6 @@ pip install --upgrade --no-deps --pre cupy-cuda101
 #pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/weekly/cuda/10.1 nvidia-dali-weekly
 HOROVOD_NCCL_HOME="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME" HOROVOD_NCCL_INCLUDE="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/include" HOROVOD_NCCL_LIB="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/lib" HOROVOD_GPU_ALLREDUCE=NCCL pip install --no-cache-dir horovod
 pip install hydra-core --pre
-pip install git+https://github.com/pytorch/nestedtensor.git
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
 
