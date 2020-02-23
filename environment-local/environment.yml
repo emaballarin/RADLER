@@ -24,7 +24,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.3.11
+  - redis-py=3.4.1
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -302,7 +302,7 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.38-cp37-none-linux_x86_64.whl
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.39-cp37-none-linux_x86_64.whl
       - jax
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
@@ -387,7 +387,8 @@ dependencies:
       - contextvars
       - catalogue
       - ml_datasets
-      - thinc==8.0.0a0
+      - thinc==8.0.0a1
       - omegaconf
       - git+https://github.com/tristandeleu/pytorch-meta.git
       - frozendict
+      - git+https://github.com/LiyuanLucasLiu/RAdam.git

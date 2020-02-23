@@ -52,13 +52,17 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 # Deactivate environment
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
-# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod (8) Hydra.
+# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod; (8) Hydra; (9) Flax.
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 pip install git+https://github.com/SurrealAI/torchx-public.git
 pip install --no-cache-dir --upgrade --no-deps --force-reinstall git+https://github.com/williamFalcon/pytorch-lightning.git
 CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
 pip install git+https://github.com/hylang/hy.git
 pip install --upgrade --no-deps --pre cupy-cuda101
+#
+git clone https://github.com/google-research/flax.git --recursive --branch prerelease
+pip install --upgrade --no-deps ./flax/
+#
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git
 #pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/weekly/cuda/10.1 nvidia-dali-weekly
@@ -133,7 +137,7 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 # Install manually just some more packages...
 cd "$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/lib/python3.7/site-packages/"
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/hcgd.git
-git clone --branch master --depth 1 --recursive https://github.com/emaballarin/RAdam.git
+#git clone --branch master --depth 1 --recursive https://github.com/emaballarin/RAdam.git
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/lookahead_pytorch.git
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/l4_pytorch.git
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/rangeropt.git
