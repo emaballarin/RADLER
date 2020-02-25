@@ -381,7 +381,7 @@ dependencies:
       - git+https://github.com/tudor-berariu/liftoff.git
       - http://ballarin.cc/mirrorsrv/artelysknitro/knitropython.tar.gz
       - git+https://github.com/ElementAI/baal.git
-      - git+https://github.com/Diviyan-Kalainathan/CausalDiscoveryToolbox.git
+      - git+https://github.com/FenTechSolutions/CausalDiscoveryToolbox.git
       - dataclasses
       - contextvars
       - catalogue
@@ -391,3 +391,12 @@ dependencies:
       - git+https://github.com/tristandeleu/pytorch-meta.git
       - frozendict
       - git+https://github.com/LiyuanLucasLiu/RAdam.git
+      - git+https://github.com/rtqichen/torchdiffeq.git
+      - git+https://github.com/facebookresearch/higher.git
+      - git+https://github.com/uber-research/TuRBO.git
+      - git+https://github.com/uber-research/EvoGrad.git
+      - git+https://github.com/facebookresearch/jacobian_regularizer.git
+      - git+https://github.com/facebookresearch/FDR_scheduler.git
+      - git+https://github.com/facebookresearch/qhoptim.git
+      - git+https://github.com/google/neural-tangents.git
+      - git+https://github.com/pgmpy/pgmpy.git

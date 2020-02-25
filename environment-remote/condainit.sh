@@ -57,6 +57,7 @@ pip install --upgrade --no-deps --pre cupy-cuda101
 #
 git clone https://github.com/google-research/flax.git --recursive --branch prerelease
 pip install --upgrade --no-deps ./flax/
+rm -R -f ./flax/
 #
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git
