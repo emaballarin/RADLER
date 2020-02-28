@@ -11,6 +11,7 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 
 import torchx as thx
+import pytorch_lightning as ptl
 
 import art
 

@@ -295,7 +295,7 @@ dependencies:
       - test_tube
       - git+https://github.com/facebookresearch/nevergrad.git
       - torchviz
-      - torchgan
+      - git+https://github.com/torchgan/torchgan.git
       - torchfusion
       - git+https://github.com/IBM/adversarial-robustness-toolbox.git
       - ax-platform
@@ -400,3 +400,14 @@ dependencies:
       - git+https://github.com/facebookresearch/qhoptim.git
       - git+https://github.com/google/neural-tangents.git
       - git+https://github.com/pgmpy/pgmpy.git
+      - executing
+      - asttokens
+      - git+https://github.com/gruns/icecream.git
+      - cheap_repr
+      - git+https://github.com/alexmojaki/snoop.git
+      - git+https://github.com/zasdfgbnm/TorchSnooper.git
+      - argparse
+      - corner
+      - glmnet
+      - py-spy
+      - git+https://github.com/mariogeiger/hessian.git
