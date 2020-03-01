@@ -118,7 +118,7 @@ data/
 .vscode/
 .ionide/
 
-#Old KDE settings
+# Old KDE settings
 .directory
 
 # Experiments
@@ -129,3 +129,12 @@ structured_jupytest.ipynb
 
 # Cleanup files
 .veryold/
+.old/
+
+# Various
+furtherdata/
+.ipynb_checkpoints/
+old/
+*.tar.gz
+prova/
+test/

@@ -266,6 +266,16 @@ dependencies:
   - xmltodict
   - yarl
   - zipp
+  - docopt
+  - jsonpickle
+  - munch
+  - wrapt
+  - py-cpuinfo
+  - packaging
+  - PyJWT
+  - flask-compress
+  - path.py
+  - jmespath
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -412,3 +422,19 @@ dependencies:
       - glmnet
       - py-spy
       - git+https://github.com/mariogeiger/hessian.git
+      - sacred
+      - bravado
+      - requests-oauthlib
+      - neptune-client
+      - neptune-notebooks
+      - attrdict
+      - scikit-plot
+      - botocore
+      - s3transfer
+      - boto3
+      - altair
+      - aif360
+      - beautifulsoup4
+      - soupsieve
+      - hiplot
+      - neptune-contrib
