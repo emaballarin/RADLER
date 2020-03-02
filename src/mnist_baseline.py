@@ -1,3 +1,20 @@
+# ---------------------------------------------------------------------------- #
+#                                                                              #
+# RADLER ~ (adversarially) Robust Adversarial Distributional LEaRner           #
+#                                                                              #
+# (C) 2019-* Emanuele Ballarin <emanuele@ballarin.cc>                          #
+# (C) 2019-* AI-CPS@UniTS Laboratory (a.k.a. Bortolussi Group)                 #
+#                                                                              #
+# Distribution: MIT License                                                    #
+# (Full text: https://github.com/emaballarin/RADLER/blob/master/LICENSE)       #
+#                                                                              #
+# Eventually-updated version: https://github.com/emaballarin/RADLER            #
+#                                                                              #
+# ---------------------------------------------------------------------------- #
+
+
+# Reference implementation: https://github.com/pytorch/examples/blob/master/mnist/main.py with slight modifications.
+
 from __future__ import print_function
 import argparse
 import torch
@@ -7,7 +24,11 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.optim.lr_scheduler import StepLR
 
+# Net architecture is preserved.
+# Weights & biases total: 431080 (?> Re-count!)
+# Example - Test set: Average loss: 0.0310, Accuracy: 9912/10000 (99%)
 
+# PyTorch Examples architecture
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
@@ -69,13 +90,14 @@ def test(args, model, device, test_loader):
 
 def main():
     # Training settings
+    # Default parameters are tweaked ->
     parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
-    parser.add_argument('--batch-size', type=int, default=64, metavar='N',
-                        help='input batch size for training (default: 64)')
+    parser.add_argument('--batch-size', type=int, default=32, metavar='N',
+                        help='input batch size for training (default: 32)')  # As per Graphcore: https://www.graphcore.ai/posts/revisiting-small-batch-training-for-deep-neural-networks
     parser.add_argument('--test-batch-size', type=int, default=1000, metavar='N',
                         help='input batch size for testing (default: 1000)')
-    parser.add_argument('--epochs', type=int, default=14, metavar='N',
-                        help='number of epochs to train (default: 14)')
+    parser.add_argument('--epochs', type=int, default=28, metavar='N',
+                        help='number of epochs to train (default: 28)')     # As per: ibidem
     parser.add_argument('--lr', type=float, default=1.0, metavar='LR',
                         help='learning rate (default: 1.0)')
     parser.add_argument('--gamma', type=float, default=0.7, metavar='M',
@@ -87,7 +109,7 @@ def main():
     parser.add_argument('--log-interval', type=int, default=10, metavar='N',
                         help='how many batches to wait before logging training status')
 
-    parser.add_argument('--save-model', action='store_true', default=False,
+    parser.add_argument('--save-model', action='store_true', default=True,  # Acquire the baseline model
                         help='For Saving the current Model')
     args = parser.parse_args()
     use_cuda = not args.no_cuda and torch.cuda.is_available()

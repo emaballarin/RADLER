@@ -13,6 +13,7 @@ channels:
   - oxfordcontrol
   - albumentations
   - comet_ml
+  - cvxgrp
   - intel
 
 dependencies:
@@ -34,7 +35,7 @@ dependencies:
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
   - pillow=7.0
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
-  - networkx=2.2
+  - networkx=2.4
   # Pin FlatBuffers (req. by PyProb)
   - flatbuffers=1.10
   # Pin ThinC dependencies
@@ -48,6 +49,9 @@ dependencies:
   # PyTorch and the like
   - pytorch=1.4
   - captum=0.1
+    # Optimization-related stuff
+  - ecos=2.0.7
+  - scs=2
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -438,3 +442,14 @@ dependencies:
       - soupsieve
       - hiplot
       - neptune-contrib
+      - cvxpy
+      - threadpoolctl
+      - git+https://github.com/cvxgrp/dccp.git
+      - git+https://github.com/cvxgrp/sccf.git
+      - git+https://github.com/cvxgrp/a2dr.git
+      - git+https://github.com/cvxgrp/dmcp.git
+      - git+https://github.com/cvxgrp/cone_prog_refine.git
+      - git+https://github.com/cvxgrp/strat_models.git
+      - git+https://github.com/enzobusseti/lrbd.git
+      - git+https://github.com/enzobusseti/pyfuncdb.git
+      - git+https://github.com/enzobusseti/greedy_grid_search.git

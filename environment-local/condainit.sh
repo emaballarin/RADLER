@@ -52,7 +52,7 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 # Deactivate environment
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 
-# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod; (8) Hydra; (9) Flax.
+# Install: (0) TorchX; (1) PyTorch Lightning; (2) Pillow-SIMD; (3) Hy; (4) CuPy; (5) APEX; (6) DALI weekly; (7) Horovod; (8) Hydra; (9) Flax; (10) Optimization-related stuff.
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 pip install git+https://github.com/SurrealAI/torchx-public.git
 pip install --no-cache-dir --upgrade --no-deps --force-reinstall git+https://github.com/williamFalcon/pytorch-lightning.git
@@ -63,6 +63,11 @@ pip install --upgrade --no-deps --pre cupy-cuda101
 git clone https://github.com/google-research/flax.git --recursive --branch prerelease
 pip install --upgrade --no-deps ./flax/
 rm -R -f ./flax/
+#
+# Optimization-related stuff
+MARCH_NATIVE=1 OPENMP_FLAG="-fopenmp" pip install diffcp
+pip install git+https://github.com/cvxgrp/cvxpylayers.git
+pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 #
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git
