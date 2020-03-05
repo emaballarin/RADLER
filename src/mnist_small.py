@@ -2,7 +2,7 @@
 #                                                                              #
 # RADLER ~ (adversarially) Robust Adversarial Distributional LEaRner           #
 #                                                                              #
-# |> MNIST baseline NN implementation <|                                       #
+# |> MNIST NN implementation, optimized for reduced parameter nr. <|           #
 #                                                                              #
 # (C) 2019-* Emanuele Ballarin <emanuele@ballarin.cc>                          #
 # (C) 2019-* AI-CPS@UniTS Laboratory (a.k.a. Bortolussi Group)                 #
@@ -40,19 +40,19 @@ from torchvision import datasets, transforms
 # NETWORK ARCHITECTURE #
 # -------------------- #
 
-# Trainable parameters: 225034
-# Example ~ avg. loss: 0.0227, acc.: 9927/10000 (99%)
+# Trainable parameters: 20522
+# Example ~ avg. loss: 0.0280, acc.: 9904/10000 (99%)
 
-# Chollet-Chintala-Ansuini architecture
+# Chollet-Chintala-Ansuini architecture, ensmalled ;)
 class Net(nn.Module):
     def __init__(self):
         super(Net, self).__init__()
-        self.conv1 = nn.Conv2d(1, 32, 3, 1)
-        self.conv2 = nn.Conv2d(32, 64, 3, 1)
+        self.conv1 = nn.Conv2d(1, 8, 5, 1)
+        self.conv2 = nn.Conv2d(8, 16, 5, 1)
         self.dropout1 = nn.Dropout2d(0.25)
         self.dropout2 = nn.Dropout2d(0.5)
-        self.fc1 = nn.Linear(1600, 128)
-        self.fc2 = nn.Linear(128, 10)
+        self.fc1 = nn.Linear(256, 64)
+        self.fc2 = nn.Linear(64, 10)
 
     def forward(self, x):
         x = self.conv1(x)
@@ -225,7 +225,7 @@ def main():
         test(args, model, device, test_loader)
 
     if args.save_model:
-        torch.save(model.state_dict(), "mnist_cnn.pt")
+        torch.save(model.state_dict(), "mnist_cnn_small.pt")
 
 
 if __name__ == "__main__":

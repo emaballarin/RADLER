@@ -317,7 +317,7 @@ dependencies:
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
       - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.39-cp37-none-linux_x86_64.whl
-      - jax
+      - jax==0.1.59
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -452,3 +452,7 @@ dependencies:
       - git+https://github.com/enzobusseti/lrbd.git
       - git+https://github.com/enzobusseti/pyfuncdb.git
       - git+https://github.com/enzobusseti/greedy_grid_search.git
+      - git+https://github.com/deepmind/tree.git
+      - git+https://github.com/deepmind/dm_env.git
+      - git+https://github.com/deepmind/dm-haiku.git
+      - git+https://github.com/deepmind/rlax.git
