@@ -18,10 +18,6 @@
 # Adapted from PyTorch examples
 # (cfr.: https://github.com/pytorch/examples/tree/60108edfa3838a823220e16428cb5f98e8e88d53)
 
-# NOTE: As this model needs to be used mainly as a scaffold to "host" weights generated
-# by a generative model, it is easier to keep it written in base PyTorch to better allow
-# direct weight manipulation. Otherwise, PyTorch Lightning will be used.
-
 
 # ------- #
 # IMPORTS #
