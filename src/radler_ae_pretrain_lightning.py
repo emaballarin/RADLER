@@ -37,6 +37,7 @@ import torch.optim as optim
 from torch.autograd import Variable
 from torch.utils import data
 from torch.utils.data import DataLoader, random_split, TensorDataset
+from torch.utils.data.dataset import Dataset
 
 import torchvision
 from torchvision import datasets, transforms
@@ -45,14 +46,34 @@ from torchsummary import summary
 from torchvision.utils import save_image
 
 import pytorch_lightning as pl
+from pytorch_lightning import Trainer
+from pytorch_lightning.callbacks import ModelCheckpoint
 
-# from src import radler_util as rutil
-import radler_util as rutil
+if __name__ == "__main__":
+    import radler_util as rutil
+else:
+    from src import radler_util as rutil
 
 
-# ------- #
-# DATASET #
-# ------- #
+# ------------------- #
+# DATASET BOILERPLATE #
+# ------------------- #
+
+# A fake dataset composed all of the same in-out pair, which is the only example (to be autoencoded)
+class MyStupidDataset(Dataset):
+    def __init__(self):
+        # Such example:
+        self.my_single_example = (
+            rutil.dictmodel_flatten(th.load("mnist_cnn_small.pt"), th_device="cuda")
+            .clone()
+            .detach()
+        )
+
+    def __getitem__(self, index):
+        return self.my_single_example, self.my_single_example
+
+    def __len__(self):
+        return 1000
 
 
 # -------------------- #
@@ -97,7 +118,7 @@ class AE_Encoder(nn.Module):
         x = self.fc4(x)
 
         # Generated code
-        code = F.tanh(x)  # We want our code to be "probably also negative"
+        code = th.tanh(x)  # We want our code to be "probably also negative"
 
         return code
 
@@ -137,7 +158,7 @@ class AE_Decoder(nn.Module):
         x = self.fc4(x)
 
         # Generated output
-        code = F.tanh(x)  # We want our data to be "probably also negative"
+        code = th.tanh(x)  # We want our data to be "probably also negative"
 
         return code
 
@@ -177,14 +198,14 @@ class Autoencoder(pl.LightningModule):
         return (torch.nn.MSELoss(reduction="sum"))(given_in, given_out)
 
     def training_step(self, train_batch, batch_idx):
-        x, y = train_batch, train_batch
+        x, y = train_batch
         copied_input = self.forward(x)
         loss = self.MSE_loss(copied_input, y)
         logs = {"train_loss": loss}
         return {"loss": loss, "log": logs}
 
     def validation_step(self, val_batch, batch_idx):
-        x, y = val_batch, val_batch
+        x, y = val_batch
         copied_input = self.forward(x)
         loss = self.MSE_loss(copied_input, y)
         return {"val_loss": loss}
@@ -197,26 +218,19 @@ class Autoencoder(pl.LightningModule):
         tensorboard_logs = {"val_loss": avg_loss}
         return {"avg_val_loss": avg_loss, "log": tensorboard_logs}
 
-    # Stupid dataloader
-    def stupid_dataloader(self):
-        mydict = th.load("mnist_cnn_small.pt")
-        mytensor = rutil.dictmodel_flatten(mydict, th_device="cuda")
-        # return ((mytensor.clone().detach()).repeat(10000, 1).t()).t()
-        return mytensor.clone().detach().repeat(1000, 1, 1)
-
     def train_dataloader(self):
-        my_dataset = data.TensorDataset(self.stupid_dataloader())
-        my_train = DataLoader(my_dataset, batch_size=32)
+        my_dataset = MyStupidDataset()
+        my_train = DataLoader(my_dataset, shuffle=False, batch_size=64)
         return my_train
 
     def val_dataloader(self):
-        my_dataset = data.TensorDataset(self.stupid_dataloader())
-        my_val = DataLoader(my_dataset, batch_size=32)
+        my_dataset = MyStupidDataset()
+        my_val = DataLoader(my_dataset, shuffle=False, batch_size=64)
         return my_val
 
     def test_dataloader(self):
-        my_dataset = data.TensorDataset(self.stupid_dataloader())
-        my_test = DataLoader(my_dataset, batch_size=32)
+        my_dataset = MyStupidDataset()
+        my_test = DataLoader(my_dataset, shuffle=False, batch_size=64)
         return my_test
 
     def configure_optimizers(self):
@@ -228,6 +242,18 @@ class Autoencoder(pl.LightningModule):
 
 # train
 model = Autoencoder()
-trainer = pl.Trainer(max_epochs=3)
+trainer = pl.Trainer(
+    # We are forcing pure overfitting here; still
+    # we don't want too much of it.
+    max_epochs=50,  # Autostopped
+    gpus=1,
+)
 
 trainer.fit(model)
+
+# For some curious reason (a.k.a. purposeful overfitting), the decoding part is
+# almost centered at [0.0, 0.0] to produce the best replication of the in-out
+
+
+# Save model (decoding part)
+th.save(model.decoder.state_dict(), "bottleneck.pt")
