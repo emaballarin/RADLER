@@ -59,15 +59,17 @@ device = torch.device("cuda" if use_cuda else "cpu")
 # ---------- #
 
 loaddict = th.load("mnist_cnn_small.pt")
+# loaddict = th.load("mnist_cnn.pt")
 
 model = myarchs.SmallMNISTNet()
+# model = myarchs.MNISTNet()
 rutil.model_weightload(loaddict, model, th_device="cuda")  # Already in eval mode
 
 # --------- #
 # DATA LOAD #
 # --------- #
 
-batch_size = 5
+batch_size = 250
 loader = get_mnist_test_loader(batch_size=batch_size)
 for cln_data, true_label in loader:
     break
@@ -80,9 +82,9 @@ cln_data, true_label = cln_data.to(device), true_label.to(device)
 adversary = LinfPGDAttack(
     model.forward,
     loss_fn=None,
-    eps=0.3,
-    nb_iter=40,
-    eps_iter=0.01,
+    eps=0.175,
+    nb_iter=160,
+    eps_iter=0.00225,
     rand_init=True,
     clip_min=0.0,
     clip_max=1.0,
@@ -144,13 +146,8 @@ pred_cln = predict_from_logits(model(cln_data))
 
 def egrob(unpert_pred: th.Tensor, pert_pred: th.Tensor):
     return (
-        th.sum((unpert_pred != pert_pred).clone().detach()) / th.tensor(pred_cln.size())
-    ).double()
-
-
-def succratio(unpert_pred: th.Tensor, pert_pred: th.Tensor):
-    return (
-        th.sum((unpert_pred != pert_pred).clone().detach()) / th.tensor(pred_cln.size())
+        th.sum((unpert_pred == pert_pred).clone().detach().double()).double()
+        / th.tensor(pred_cln.size()).double()
     ).double()
 
 
