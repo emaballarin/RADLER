@@ -138,3 +138,6 @@ old/
 *.tar.gz
 prova/
 test/
+
+# Old models
+oldmodels/
