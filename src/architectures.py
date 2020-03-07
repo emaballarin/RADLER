@@ -54,7 +54,7 @@ class MNISTNet(nn.Module):
         x = F.max_pool2d(x, 2)
         x = F.relu(x)
         x = self.dropout1(x)
-        x = torch.flatten(x, 1)
+        x = th.flatten(x, 1)
         x = self.fc1(x)
         x = F.relu(x)
         x = self.dropout2(x)
@@ -94,7 +94,7 @@ class SmallMNISTNet(nn.Module):
         x = F.max_pool2d(x, 2)
         x = F.relu(x)
         x = self.dropout1(x)
-        x = torch.flatten(x, 1)
+        x = th.flatten(x, 1)
         x = self.fc1(x)
         x = F.relu(x)
         x = self.dropout2(x)
@@ -166,20 +166,20 @@ class AE_Decoder(nn.Module):
 
         # Layer 1
         x = self.fc1(x)
-        x = F.relu(x)
+        x = F.leaky_relu(x)
 
         # Layer 2
         x = self.fc2(x)
-        x = F.relu(x)
+        x = F.leaky_relu(x)
 
         # Layer 3
         x = self.fc3(x)
-        x = F.relu(x)
+        x = F.leaky_relu(x)
 
         # Layer 4
         x = self.fc4(x)
 
         # Generated output
-        code = th.tanh(x)  # We want our data to be "probably also negative"
+        data_out = th.tanh(x)  # We want our data to be "probably also negative"
 
-        return code
+        return data_out
