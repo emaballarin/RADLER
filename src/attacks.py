@@ -127,17 +127,18 @@ pred_untargeted_adv = predict_from_logits(model(adv_untargeted))
 
 pred_cln = predict_from_logits(model(cln_data))
 
-# plt.figure(figsize=(10, 8))
-# for ii in range(batch_size):
-#     plt.subplot(3, batch_size, ii + 1)
-#     _imshow(cln_data[ii])
-#     plt.title("clean \n pred: {}".format(pred_cln[ii]))
-#     plt.subplot(3, batch_size, ii + 1 + batch_size)
-#     _imshow(adv_untargeted[ii])
-#     plt.title("untargeted \n adv \n pred: {}".format(pred_untargeted_adv[ii]))
-#
-# plt.tight_layout()
-# plt.show()
+if batch_size <= 5:
+    plt.figure(figsize=(10, 8))
+    for ii in range(batch_size):
+        plt.subplot(3, batch_size, ii + 1)
+        _imshow(cln_data[ii])
+        plt.title("clean \n pred: {}".format(pred_cln[ii]))
+        plt.subplot(3, batch_size, ii + 1 + batch_size)
+        _imshow(adv_untargeted[ii])
+        plt.title("untargeted \n adv \n pred: {}".format(pred_untargeted_adv[ii]))
+
+    plt.tight_layout()
+    plt.show()
 
 # --------- #
 # FUNCTIONS #
