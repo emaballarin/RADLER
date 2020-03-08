@@ -52,6 +52,11 @@ def dictmodel_flatten(dictmodel: collections.OrderedDict, th_device="cuda"):
             'model_flatten: th_device specified is neither "cpu" nor "cuda".'
         )
 
+    if th_device == "cuda" and not th.cuda.is_available():
+        raise Exception(
+                'model_flatten: th_device specified as "cuda", but no CUDA device available.'
+        )
+
     flatmodel: th.Tensor = th.tensor([]).to(th_device)
 
     for key in dictmodel:
@@ -117,6 +122,11 @@ def model_weightload(
                 'model_weightload: th_device specified is neither "cpu" nor "cuda" (nor None).'
             )
         else:
+            if th_device == "cuda" and not th.cuda.is_available():
+                raise Exception(
+                        'model_weightload: th_device specified as "cuda", but no CUDA device available.'
+                )
+
             # Make sure to call input = input.to(device) on any input tensors that you feed to the model
             instantiated_model.to(th_device)
 

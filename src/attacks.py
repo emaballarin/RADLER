@@ -41,9 +41,11 @@ from advertorch.attacks import CarliniWagnerL2Attack
 if __name__ == "__main__":
     import architectures as myarchs
     import weights_util as wutil
+    import attacks_util as atku
 else:
     from src import architectures as myarchs
     from src import weights_util as wutil
+    from src import attacks_util as atku
 
 
 # -------------------------- #
@@ -70,7 +72,7 @@ wutil.model_weightload(loaddict, model, th_device="cuda")  # Already in eval mod
 # --------- #
 
 batch_size = 250
-loader = get_mnist_test_loader(batch_size=batch_size)
+loader = get_mnist_test_loader(batch_size=batch_size, shuffle=True)
 for cln_data, true_label in loader:
     break
 cln_data, true_label = cln_data.to(device), true_label.to(device)
@@ -153,3 +155,5 @@ def egrob(unpert_pred: th.Tensor, pert_pred: th.Tensor):
 
 
 print(egrob(pred_cln, pred_untargeted_adv))
+
+print(atku.egrob_advatk_mnist(model, 250, "cuda"))
