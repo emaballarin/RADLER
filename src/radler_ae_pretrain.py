@@ -32,10 +32,10 @@ import pytorch_lightning as pl
 
 if __name__ == "__main__":
     import architectures as myarchs
-    import radler_util as rutil
+    import weights_util as wutil
 else:
     from src import architectures as myarchs
-    from src import radler_util as rutil
+    from src import weights_util as wutil
 
 
 # -------------------- #
@@ -54,7 +54,7 @@ class MyStupidDataset(Dataset):
     def __init__(self):
         # Such example:
         self.my_single_example = (
-            rutil.dictmodel_flatten(th.load("mnist_cnn_small.pt"), th_device="cuda")
+            wutil.dictmodel_flatten(th.load("mnist_cnn_small.pt"), th_device="cuda")
             .clone()
             .detach()
         )

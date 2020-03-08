@@ -40,10 +40,10 @@ from advertorch.attacks import CarliniWagnerL2Attack
 
 if __name__ == "__main__":
     import architectures as myarchs
-    import radler_util as rutil
+    import weights_util as wutil
 else:
     from src import architectures as myarchs
-    from src import radler_util as rutil
+    from src import weights_util as wutil
 
 
 # -------------------------- #
@@ -63,7 +63,7 @@ loaddict = th.load("mnist_cnn_small.pt")
 
 model = myarchs.SmallMNISTNet()
 # model = myarchs.MNISTNet()
-rutil.model_weightload(loaddict, model, th_device="cuda")  # Already in eval mode
+wutil.model_weightload(loaddict, model, th_device="cuda")  # Already in eval mode
 
 # --------- #
 # DATA LOAD #
