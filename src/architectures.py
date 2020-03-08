@@ -115,30 +115,39 @@ class SmallMNISTNet(nn.Module):
 
 # ENCODER part:
 class AE_Encoder(nn.Module):
-    def __init__(self, data_size=20522, code_size=2):
+    def __init__(self, data_size=20522, code_size=2, normalize=False):
         super(AE_Encoder, self).__init__()
 
         self.data_size = data_size
         self.code_size = code_size
+        self.normalize = normalize
 
         self.fc1 = nn.Linear(self.data_size, 512)
         self.fc2 = nn.Linear(512, 128)
+        if normalize:
+            self.bn2 = nn.BatchNorm1d(128, 0.8)
         self.fc3 = nn.Linear(128, 32)
+        if normalize:
+            self.bn3 = nn.BatchNorm1d(32, 0.8)
         self.fc4 = nn.Linear(32, self.code_size)
 
     def forward(self, x):
 
         # Layer 1
         x = self.fc1(x)
-        x = F.leaky_relu(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 2
         x = self.fc2(x)
-        x = F.leaky_relu(x)
+        if self.normalize:
+            x = self.bn2(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 3
         x = self.fc3(x)
-        x = F.leaky_relu(x)
+        if self.normalize:
+            x = self.bn3(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 4
         x = self.fc4(x)
@@ -151,30 +160,39 @@ class AE_Encoder(nn.Module):
 
 # DECODER part:
 class AE_Decoder(nn.Module):
-    def __init__(self, code_size=2, data_size=20522):
+    def __init__(self, code_size=2, data_size=20522, normalize=False):
         super(AE_Decoder, self).__init__()
 
         self.code_size = code_size
         self.data_size = data_size
+        self.normalize = normalize
 
         self.fc1 = nn.Linear(self.code_size, 32)
         self.fc2 = nn.Linear(32, 128)
+        if normalize:
+            self.bn2 = nn.BatchNorm1d(128, 0.8)
         self.fc3 = nn.Linear(128, 512)
+        if normalize:
+            self.bn3 = nn.BatchNorm1d(512, 0.8)
         self.fc4 = nn.Linear(512, self.data_size)
 
     def forward(self, x):
 
         # Layer 1
         x = self.fc1(x)
-        x = F.leaky_relu(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 2
         x = self.fc2(x)
-        x = F.leaky_relu(x)
+        if self.normalize:
+            x = self.bn2(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 3
         x = self.fc3(x)
-        x = F.leaky_relu(x)
+        if self.normalize:
+            x = self.bn3(x)
+        x = F.leaky_relu(x, 0.07)
 
         # Layer 4
         x = self.fc4(x)

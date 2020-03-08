@@ -141,7 +141,7 @@ model = Autoencoder()
 trainer = pl.Trainer(
     # We are forcing pure overfitting here; still
     # we don't want too much of it.
-    max_epochs=20,  # Autostopped, eventually
+    max_epochs=15,  # Autostopped, eventually (but it's balanced after all)
     gpus=1,
 )
 
