@@ -52,6 +52,9 @@ dependencies:
     # Optimization-related stuff
   - ecos=2.0.7
   - scs=2
+  # Minimal but useful TensorFlow 2+ setup
+  - tensorflow-gpu=2.1
+  - tensorflow-estimator=2.1
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -130,6 +133,7 @@ dependencies:
   - ipykernel
   - ipython
   - ipython_genutils
+  - ipywidgets
   - isort
   - itsdangerous
   - jedi
@@ -140,8 +144,11 @@ dependencies:
   - jsonschema
   - jupyter
   - jupyter_client
+  - jupyter_console
   - jupyter_core
   - jupyterlab
+  - jupyterlab_launcher
+  - jupyterlab_server
   - jupytext
   - kiwisolver
   - libjpeg-turbo
@@ -211,6 +218,7 @@ dependencies:
   - pytz
   - pyyaml
   - pyzmq
+  - qtconsole
   - rdflib
   - redis
   - regex
@@ -266,6 +274,8 @@ dependencies:
   - webencodings
   - websocket-client
   - werkzeug
+  - wheel
+  - widgetsnbextension
   - wurlitzer
   - xmltodict
   - yarl
@@ -293,6 +303,8 @@ dependencies:
       - git+https://github.com/pytorch/ignite.git
       - git+https://github.com/pytorch/contrib.git
       - git+https://github.com/pytorch/tnt.git
+      - tensorflow_probability
+      - gin-config
       - fasteners
       - monotonic
       - cachetools
@@ -458,3 +470,6 @@ dependencies:
       - git+https://github.com/deepmind/dm-haiku.git
       - git+https://github.com/deepmind/rlax.git
       - git+https://github.com/arogozhnikov/einops.git
+      - git+https://github.com/google/pasta.git
+      - git+https://github.com/google/edward2.git#egg=edward2
+      - git+https://github.com/google/TensorNetwork.git

@@ -59,6 +59,9 @@ git clone https://github.com/google-research/flax.git --recursive --branch prere
 pip install --upgrade --no-deps ./flax/
 rm -R -f ./flax/
 #
+# TensorFlow stuff
+pip install "dm-sonnet>=2.0.0b0" --pre
+#
 # Optimization-related stuff
 MARCH_NATIVE=1 OPENMP_FLAG="-fopenmp" pip install diffcp
 pip install git+https://github.com/cvxgrp/cvxpylayers.git
