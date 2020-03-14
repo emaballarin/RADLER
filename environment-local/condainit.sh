@@ -150,6 +150,7 @@ git clone --branch master --depth 1 --recursive https://github.com/emaballarin/h
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/lookahead_pytorch.git
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/l4_pytorch.git
 git clone --branch master --depth 1 --recursive https://github.com/emaballarin/rangeropt.git
+git clone --branch master --depth 1 --recursive https://github.com/MilesCranmer/lagrangian_nns.git
 
 # End
 cd "$SELF_STORED_CALLDIR"

@@ -138,6 +138,9 @@ old/
 *.tar.gz
 prova/
 test/
+references/
+venv/
+*.ipynb_checkpoints/
 
 # Old models
 oldmodels/

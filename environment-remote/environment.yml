@@ -161,6 +161,7 @@ dependencies:
   - monkeytype
   - more-itertools
   - mosek
+  - moviepy
   - multidict
   - multipledispatch
   - multiprocess
@@ -364,7 +365,7 @@ dependencies:
       - python_version
       - git+https://github.com/AI-DI/Brancher.git
       - git+https://github.com/sksq96/pytorch-summary.git
-      - git+https://github.com/probprog/pyprob.git
+      - git+https://github.com/pyprob/pyprob.git
       - git+https://github.com/achaiah/pywick.git
       - git+https://github.com/unit8co/vegans.git
       - googledrivedownloader
@@ -472,3 +473,7 @@ dependencies:
       - git+https://github.com/google/pasta.git
       - git+https://github.com/google/edward2.git#egg=edward2
       - git+https://github.com/google/TensorNetwork.git
+      - celluloid
+      - git+https://github.com/AdamCobb/hamiltorch.git
+      - git+https://github.com/MilesCranmer/differentiable_quantile_transform.git
+      - git+https://github.com/robertness/pyro_agents.git
