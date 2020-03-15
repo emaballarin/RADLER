@@ -345,6 +345,7 @@ dependencies:
       - git+https://github.com/pyro-ppl/numpyro.git
       - git+https://github.com/pyro-ppl/funsor.git
       - git+https://github.com/pyro-ppl/brmp.git
+      - git+https://github.com/emaballarin/pyro-models.git
       - git+https://github.com/harvardnlp/namedtensor
       # zmq is a "fake dependency"
       - zmq
@@ -462,9 +463,6 @@ dependencies:
       - git+https://github.com/cvxgrp/dmcp.git
       - git+https://github.com/cvxgrp/cone_prog_refine.git
       - git+https://github.com/cvxgrp/strat_models.git
-      - git+https://github.com/enzobusseti/lrbd.git
-      - git+https://github.com/enzobusseti/pyfuncdb.git
-      - git+https://github.com/enzobusseti/greedy_grid_search.git
       - dm-tree
       - git+https://github.com/deepmind/dm_env.git
       - git+https://github.com/deepmind/dm-haiku.git
