@@ -67,6 +67,20 @@ MARCH_NATIVE=1 OPENMP_FLAG="-fopenmp" pip install diffcp
 pip install git+https://github.com/cvxgrp/cvxpylayers.git
 pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 #
+
+# Jupinx/QuantEcon stack
+##
+pip install --no-deps sphinxcontrib-jupyter
+pip install --no-deps jupinx
+#
+jupyter labextension install @jupyterlab/toc --no-build
+jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
+jupyter labextension install plotlywidget@1.1.1 --no-build
+jupyter labextension install jupyterlab-plotly@1.1.2 --no-build
+#
+jupyter lab build
+##
+
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git
 #pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/weekly/cuda/10.1 nvidia-dali-weekly

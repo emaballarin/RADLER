@@ -19,7 +19,7 @@ channels:
 dependencies:
   ### LATEST-PINNED ###
   # Keep Python pinned, but in sync with latest version.!
-  - python=3.7.6
+  - python=3.7.7
   # Use MKL to provide BLAS, latest version from the defaults channel.
   - blas=*=mkl
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
@@ -293,6 +293,17 @@ dependencies:
   - dask
   - dask-core
   - xarray
+  - alabaster
+  - babel
+  - distributed
+  - heapdict
+  - imagesize
+  - snowballstemmer
+  - sortedcontainers
+  - tblib
+  - zict
+  - oset
+  - descartes
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -479,3 +490,15 @@ dependencies:
       - git+https://github.com/MilesCranmer/differentiable_quantile_transform.git
       - git+https://github.com/robertness/pyro_agents.git
       - ipyparallel
+      - msgpack
+      - latexcodec
+      - pybtex
+      - pybtex-docutils
+      - sphinx
+      - sphinxcontrib-applehelp
+      - sphinxcontrib-devhelp
+      - sphinxcontrib-htmlhelp
+      - sphinxcontrib-jsmath
+      - sphinxcontrib-qthelp
+      - sphinxcontrib-serializinghtml
+      - sphinxcontrib-bibtex
