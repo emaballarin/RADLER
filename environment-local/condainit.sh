@@ -60,9 +60,8 @@ CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall
 pip install git+https://github.com/hylang/hy.git
 pip install --upgrade --no-deps --pre cupy-cuda101
 #
-git clone https://github.com/google-research/flax.git --recursive --branch prerelease
-pip install --upgrade --no-deps ./flax/
-rm -R -f ./flax/
+pip install --upgrade --no-deps git+https://github.com/google-research/flax.git
+pip install --upgrade git+https://github.com/adamhaber/JaxEnt.git
 #
 # TensorFlow stuff
 pip install "dm-sonnet>=2.0.0b0" --pre

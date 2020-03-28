@@ -502,3 +502,10 @@ dependencies:
       - sphinxcontrib-qthelp
       - sphinxcontrib-serializinghtml
       - sphinxcontrib-bibtex
+      - fastscript
+      - nbdev
+      # Following two only local install!
+      - cmdstanpy
+      - pystan
+      - bayespy
+      - pgmpy
