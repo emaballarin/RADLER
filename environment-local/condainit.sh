@@ -79,8 +79,8 @@ pip install --no-deps jupinx
 #
 jupyter labextension install @jupyterlab/toc --no-build
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
-jupyter labextension install plotlywidget@1.1.1 --no-build
-jupyter labextension install jupyterlab-plotly@1.1.2 --no-build
+jupyter labextension install plotlywidget --no-build
+jupyter labextension install jupyterlab-plotly --no-build
 #
 jupyter lab build
 ##

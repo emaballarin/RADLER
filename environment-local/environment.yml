@@ -304,6 +304,7 @@ dependencies:
   - zict
   - oset
   - descartes
+  - pyglet
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -342,7 +343,7 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.42-cp37-none-linux_x86_64.whl
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.43-cp37-none-linux_x86_64.whl
       - jax==0.1.62
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
@@ -509,3 +510,11 @@ dependencies:
       - pystan
       - bayespy
       - pgmpy
+      - git+https://github.com/openai/gym.git
+      - PyPubSub
+      - bencode.py
+      - bitstring
+      - academictorrents
+      - git+https://github.com/tristandeleu/pytorch-meta.git
+      - git+https://github.com/learnables/learn2learn.git
+      - git+https://github.com/learnables/cherry.git
