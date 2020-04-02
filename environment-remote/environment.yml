@@ -305,6 +305,8 @@ dependencies:
   - oset
   - descartes
   - pyglet
+  - jupyterthemes
+  - jupyter_nbextensions_configurator
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -511,6 +513,6 @@ dependencies:
       - bencode.py
       - bitstring
       - academictorrents
-      - git+https://github.com/tristandeleu/pytorch-meta.git
-      - git+https://github.com/learnables/learn2learn.git
-      - git+https://github.com/learnables/cherry.git
+      - cryptography
+      - adal
+      - isodate

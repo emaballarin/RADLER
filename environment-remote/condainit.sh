@@ -57,6 +57,11 @@ pip install --upgrade --no-deps --pre cupy-cuda101
 #
 pip install --upgrade --no-deps git+https://github.com/google-research/flax.git
 pip install --upgrade git+https://github.com/adamhaber/JaxEnt.git
+pip install --upgrade --no-deps --force learn2learn
+pip install --upgrade --no-deps --force cherry-rl
+pip install --upgrade --no-deps --force torchmeta
+#
+pip install --pre azure
 #
 # TensorFlow stuff
 pip install "dm-sonnet>=2.0.0b0" --pre
