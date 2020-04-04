@@ -520,3 +520,4 @@ dependencies:
       - cryptography
       - adal
       - isodate
+      - git+https://github.com/Mirko-Nava/BayesianNeuralNetworks.git

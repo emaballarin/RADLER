@@ -77,10 +77,12 @@ pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 pip install --no-deps sphinxcontrib-jupyter
 pip install --no-deps jupinx
 #
+jupyter nbextension enable varInspector/main
 jupyter labextension install @jupyterlab/toc --no-build
 jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
 jupyter labextension install plotlywidget --no-build
 jupyter labextension install jupyterlab-plotly --no-build
+jupyter labextension install @lckr/jupyterlab_variableinspector
 #
 jupyter lab build
 ##
