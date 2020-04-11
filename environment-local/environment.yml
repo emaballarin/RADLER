@@ -527,4 +527,4 @@ dependencies:
       - pandas_flavor
       - git+https://github.com/raphaelvallat/pingouin.git
       - git+https://github.com/jonasrauber/eagerpy.git
-      - https://github.com/bethgelab/foolbox.git
+      - git+https://github.com/bethgelab/foolbox.git

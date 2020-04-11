@@ -61,7 +61,7 @@ pip install --upgrade --no-deps --force learn2learn
 pip install --upgrade --no-deps --force cherry-rl
 pip install --upgrade --no-deps --force torchmeta
 #
-pip install --pre azure
+#pip install --pre azure
 #
 # TensorFlow stuff
 pip install "dm-sonnet>=2.0.0b0" --pre
