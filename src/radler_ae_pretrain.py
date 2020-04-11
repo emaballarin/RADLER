@@ -103,31 +103,31 @@ class Autoencoder(pl.LightningModule):
         logs = {"train_loss": loss}
         return {"loss": loss, "log": logs}
 
-    def validation_step(self, val_batch, batch_idx):
-        x, y = val_batch
-        copied_input = self.forward(x)
-        loss = self.MSE_loss(copied_input, y)
-        return {"val_loss": loss}
-
-    def validation_end(self, outputs):
-        avg_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
-        tensorboard_logs = {"val_loss": avg_loss}
-        return {"avg_val_loss": avg_loss, "log": tensorboard_logs}
+    # def validation_step(self, val_batch, batch_idx):
+    #     x, y = val_batch
+    #     copied_input = self.forward(x)
+    #     loss = self.MSE_loss(copied_input, y)
+    #     return {"val_loss": loss}
+    #
+    # def validation_end(self, outputs):
+    #     avg_loss = torch.stack([x["val_loss"] for x in outputs]).mean()
+    #     tensorboard_logs = {"val_loss": avg_loss}
+    #     return {"avg_val_loss": avg_loss, "log": tensorboard_logs}
 
     def train_dataloader(self):
         my_dataset = MyStupidDataset()
         my_train = DataLoader(my_dataset, shuffle=False, batch_size=64)
         return my_train
 
-    def val_dataloader(self):
-        my_dataset = MyStupidDataset()
-        my_val = DataLoader(my_dataset, shuffle=False, batch_size=64)
-        return my_val
+    # def val_dataloader(self):
+    #     my_dataset = MyStupidDataset()
+    #     my_val = DataLoader(my_dataset, shuffle=False, batch_size=64)
+    #     return my_val
 
-    def test_dataloader(self):
-        my_dataset = MyStupidDataset()
-        my_test = DataLoader(my_dataset, shuffle=False, batch_size=64)
-        return my_test
+    # def test_dataloader(self):
+    #     my_dataset = MyStupidDataset()
+    #     my_test = DataLoader(my_dataset, shuffle=False, batch_size=64)
+    #     return my_test
 
     def configure_optimizers(self):
         # The lightningModule HAS the parameters

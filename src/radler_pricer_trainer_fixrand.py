@@ -87,11 +87,17 @@ class GAN(LightningModule):
         # Model-weights dictionary prototypes
         self.mnistnet_prototype = th.load("mnist_cnn_small.pt")
         self.bottleneck_prototype = th.load("bottleneck.pt")
+        self.loss_estimator_w = th.load("pricer_fixpoint.pt")
 
         # Load pretraining weights
         wutil.model_weightload(
             self.bottleneck_prototype, self.R_generator_arch, "cuda", only_eval=False
         )
+
+        wutil.model_weightload(
+            self.loss_estimator_w, self.R_loss_approx, "cuda", only_eval=False
+        )
+
         # hyperparameters for training
         # self.batch_size_gen = 25
         # self.batch_size_approx = 25
@@ -103,16 +109,18 @@ class GAN(LightningModule):
         return self.R_loss_approx.forward(weights_vec)
 
     def MSE_loss(self, given_in, given_out):
-        return (torch.nn.MSELoss(reduction="sum"))(given_in, given_out)
+        return torch.nn.MSELoss(reduction="sum")(given_in, given_out)
 
-    def training_step(self, batch, batch_idx, optimizer_idx):
+    def training_step(self, batch, batch_idx):
 
         _ = batch  # Useless but necessary ;)
 
         # COMMON
 
         # Sample noise
-        gen_in = (20 * th.rand(2) - 10).cuda()
+        gen_in = (6.0 * th.rand(2) - 3.0).cuda()
+        # gen_in = 0.0 * (2.0 * th.rand(2) - 1.0).cuda()
+        # gen_in = th.tensor([0.0, 0.0]).cuda()
 
         # Pass it through the generator
         gen_out = self.R_generator_arch.forward(gen_in)
@@ -120,56 +128,40 @@ class GAN(LightningModule):
         # Compute the loss
         gen_loss_approx = self.R_loss_approx.forward(gen_out)
 
-        # GENERATE NEW WEIGHTS-SETS AND TRY TO KEEP THEIR PRICE LOW
-        if optimizer_idx == 0:
+        # ~~ WEIGHTS MANIPULATIONS ~~:
 
-            tqdm_dict = {"gen_loss_approx": gen_loss_approx}
-            output = OrderedDict(
-                {"loss": gen_loss_approx, "progress_bar": tqdm_dict, "log": tqdm_dict}
-            )
-            return output
+        # Convert generator output as weights for the target architecture
+        weight_dict = wutil.dictmodel_unflatten(gen_out, self.mnistnet_prototype)
 
-        # LEARN TO PRODUCE BETTER PRICES
-        if optimizer_idx == 1:
-            print(optimizer_idx, "HAHA")
+        # Load weights to the target architecture
+        wutil.model_weightload(weight_dict, self.R_target_arch, "cuda", only_eval=True)
 
-            # ~~ WEIGHTS MANIPULATIONS ~~:
+        # ~~ TARGET USAGE ~~:
 
-            # Convert generator output as weights for the target architecture
-            weight_dict = wutil.dictmodel_unflatten(gen_out, self.mnistnet_prototype)
+        egacc, egrob = autil.egrob_advatk_mnist(self.R_target_arch, 10000, "cuda")
 
-            # Load weights to the target architecture
-            wutil.model_weightload(
-                weight_dict, self.R_target_arch, "cuda", only_eval=True
-            )
+        targetloss = 10 * th.tensor([egacc, egrob]).cuda()
 
-            # ~~ TARGET USAGE ~~:
+        approx_loss = self.MSE_loss(targetloss, gen_loss_approx)
 
-            egacc, egrob = autil.egrob_advatk_mnist(self.R_target_arch, 250, "cuda")
-
-            alpha, beta = 0.5, 0.5
-            targetloss = th.tensor([1000 * (alpha * egacc + beta * egrob)]).cuda()
-
-            approx_loss = self.MSE_loss(targetloss, gen_loss_approx)
-
-            tqdm_dict = {"approx_loss": approx_loss}
-            output = OrderedDict(
-                {"loss": approx_loss, "progress_bar": tqdm_dict, "log": tqdm_dict}
-            )
-            return output
+        tqdm_dict = {"approx_loss": approx_loss}
+        output = OrderedDict(
+            {"loss": approx_loss, "progress_bar": tqdm_dict, "log": tqdm_dict}
+        )
+        return output
 
     def configure_optimizers(self):
-
-        opt_gen = torch.optim.Adam(self.parameters(), lr=1e-2, weight_decay=0)
-        opt_approx = torch.optim.Adam(self.parameters(), lr=1e-2, weight_decay=0)
-        return [opt_gen, opt_approx]
+        opt_approx = torch.optim.Adam(
+            self.parameters(), lr=1.2 * 1e-1, weight_decay=4 * 1e-3
+        )
+        return opt_approx
 
     def train_dataloader(self):
         transform = transforms.Compose(
             [transforms.ToTensor(), transforms.Normalize([0.1307], [0.3081])]
         )
         dataset = MNIST(os.getcwd(), train=False, download=True, transform=transform)
-        loader = DataLoader(dataset, shuffle=True, batch_size=250)
+        loader = DataLoader(dataset, shuffle=False, batch_size=10000)
         loader.name = "mnist_test"
         return loader
 
@@ -183,12 +175,14 @@ def main():
     # ------------------------
     # 2 INIT TRAINER
     # ------------------------
-    trainer = Trainer(gpus=1)
+    trainer = Trainer(gpus=1, max_epochs=450)
 
     # ------------------------
     # 3 START TRAINING
     # ------------------------
     trainer.fit(model)
+
+    th.save(model.R_loss_approx.state_dict(), "pricer_fixrand.pt")
 
 
 main()

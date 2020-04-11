@@ -307,6 +307,7 @@ dependencies:
   - pyglet
   - jupyterthemes
   - jupyter_nbextensions_configurator
+  - mpmath
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -517,3 +518,9 @@ dependencies:
       - adal
       - isodate
       - git+https://github.com/Mirko-Nava/BayesianNeuralNetworks.git
+      - littleutils
+      - outdated
+      - pandas_flavor
+      - git+https://github.com/raphaelvallat/pingouin.git
+      - git+https://github.com/jonasrauber/eagerpy.git
+      - git+https://github.com/bethgelab/foolbox.git

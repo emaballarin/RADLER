@@ -201,3 +201,47 @@ class AE_Decoder(nn.Module):
         data_out = th.tanh(x)  # We want our data to be "probably also negative"
 
         return data_out
+
+
+# -------------------------- #
+# LOSS-FUNCTION APPROXIMATOR #
+# -------------------------- #
+
+# A simple multi-layer fully connected "bottleneck", with one optional BatchNorm
+# step
+
+
+class LF_Approx(nn.Module):
+    def __init__(self, data_size=20522, normalize=False):
+        super(LF_Approx, self).__init__()
+
+        self.data_size = data_size
+        self.normalize = normalize
+
+        self.fc1 = nn.Linear(self.data_size, 512)
+        self.fc2 = nn.Linear(512, 32)
+        if normalize:
+            self.bn2 = nn.BatchNorm1d(512, 0.8)
+        self.fc3 = nn.Linear(32, 2)
+
+    def forward(self, x):
+
+        # Layer 1
+        x = self.fc1(x)
+        x = F.leaky_relu(x, 0.02)
+
+        # Layer 2
+        x = self.fc2(x)
+        if self.normalize:
+            x = self.bn2(x)
+        x = F.leaky_relu(x, 0.02)
+
+        # Layer 3
+        x = self.fc3(x)
+
+        # Generated code
+        estimate = 10 * th.sigmoid(
+            x
+        )  # We want our estimate to be positive, between 0 and 1
+
+        return estimate

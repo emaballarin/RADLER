@@ -110,6 +110,8 @@ data/
 # Working PyTorch datasets
 *.pt
 *.pth
+lightning_logs/
+MNIST/
 
 # JetBrains IDEs settings
 .idea/
@@ -141,6 +143,7 @@ test/
 references/
 venv/
 *.ipynb_checkpoints/
+.unison*
 
 # Old models
 oldmodels/

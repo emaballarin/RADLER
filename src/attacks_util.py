@@ -38,7 +38,7 @@ import weights_util as wutil
 # ------------------- #
 
 
-def egrob_advatk_mnist(model, batchsize, th_device="cuda"):
+def egrob_advatk_mnist(model, batch_size, th_device="cuda"):
 
     # Enforce correct device usage
     if (th_device != "cpu") and (th_device != "cuda"):
@@ -52,8 +52,11 @@ def egrob_advatk_mnist(model, batchsize, th_device="cuda"):
         )
 
     # DATA LOADER:
-    batch_size = batchsize
-    loader = get_mnist_test_loader(batch_size=batch_size, shuffle=True)
+    # batch_size = 250
+    loader = get_mnist_test_loader(batch_size=250, shuffle=True)
+    # loader = given_loader
+    # print(type(loader))
+
     for cln_data, true_label in loader:
         break
     cln_data, true_label = cln_data.to(th_device), true_label.to(th_device)
@@ -77,11 +80,17 @@ def egrob_advatk_mnist(model, batchsize, th_device="cuda"):
     pred_untargeted_adv = predict_from_logits(model(adv_untargeted))
 
     # COMPARE
-    def egrob(unpert_pred: th.Tensor, pert_pred: th.Tensor):
+    def egacc(unpert_pred: th.Tensor, true_labels: th.Tensor):
         return (
-            th.sum((unpert_pred == pert_pred).clone().detach().double()).double()
+            th.sum((unpert_pred == true_labels).clone().detach().double()).double()
+            / th.tensor(pred_cln.size()).double()
+        ).double()
+
+    def egrob(pert_pred: th.Tensor, true_labels: th.Tensor):
+        return (
+            th.sum((pert_pred == true_labels).clone().detach().double()).double()
             / th.tensor(pred_cln.size()).double()
         ).double()
 
     # RETURN
-    return egrob(pred_cln, pred_untargeted_adv)
+    return egacc(pred_cln, true_label), egrob(pred_untargeted_adv, true_label)
