@@ -86,6 +86,11 @@ jupyter labextension install @lckr/jupyterlab_variableinspector
 #
 jupyter lab build
 ##
+#
+pip install --upgrade jupyter_http_over_ws
+jupyter serverextension enable --py jupyter_http_over_ws
+#
+##
 
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git

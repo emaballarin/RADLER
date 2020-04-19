@@ -71,7 +71,7 @@ wutil.model_weightload(loaddict, model, th_device="cuda")  # Already in eval mod
 # DATA LOAD #
 # --------- #
 
-batch_size = 250
+batch_size = 5
 loader = get_mnist_test_loader(batch_size=batch_size, shuffle=True)
 for cln_data, true_label in loader:
     break

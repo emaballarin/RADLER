@@ -31,7 +31,7 @@ dependencies:
   - tqdm>=4.35
   ### FIX-PINNED ###
   # Pin opt_einsum to a tagged version, synced with the latest version
-  - opt_einsum=3.2.0
+  - opt_einsum=3.2.1
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
   - pillow=7.0
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
@@ -43,7 +43,7 @@ dependencies:
   - cymem=2.0.3
   - murmurhash=1.0.2
   - preshed=3.0.2
-  - pydantic=1.4
+  - pydantic=1.5
   - wasabi=0.6
   - immutables=0.11
   # PyTorch and the like
@@ -346,8 +346,8 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.43-cp37-none-linux_x86_64.whl
-      - jax==0.1.62
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.44-cp37-none-linux_x86_64.whl
+      - jax==0.1.63
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -524,3 +524,7 @@ dependencies:
       - git+https://github.com/raphaelvallat/pingouin.git
       - git+https://github.com/jonasrauber/eagerpy.git
       - git+https://github.com/bethgelab/foolbox.git
+      - git+https://github.com/szymonmaszke/torchlayers.git
+      - git+https://github.com/szymonmaszke/torchfunc.git
+      - git+https://github.com/szymonmaszke/torchdata.git
+      - git+https://github.com/davidtvs/pytorch-lr-finder.git
