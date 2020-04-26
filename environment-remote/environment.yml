@@ -528,3 +528,6 @@ dependencies:
       - git+https://github.com/szymonmaszke/torchfunc.git
       - git+https://github.com/szymonmaszke/torchdata.git
       - git+https://github.com/davidtvs/pytorch-lr-finder.git
+      - retry
+      - mysql-connector-python
+      - doltpy

@@ -147,11 +147,10 @@ ln -s $(which gfortran-5) ./gfortran
 
 cd ..
 
-pip install torch-scatter
-pip install torch-sparse
-pip install torch-cluster
-pip install torch-spline-conv
-# Vanilla pip version is incompatible with PyTorch >= 1.2
+pip install git+https://github.com/rusty1s/pytorch_scatter.git
+pip install git+https://github.com/rusty1s/pytorch_sparse.git
+pip install git+https://github.com/rusty1s/pytorch_cluster.git
+pip install git+https://github.com/rusty1s/pytorch_spline_conv.git
 pip install git+https://github.com/rusty1s/pytorch_geometric.git
 
 export PATH="$PTG_PREPATH"
