@@ -43,11 +43,11 @@ dependencies:
   - cymem=2.0.3
   - murmurhash=1.0.2
   - preshed=3.0.2
-  - pydantic=1.5
+  - pydantic=1.5.1
   - wasabi=0.6
   - immutables=0.11
   # PyTorch and the like
-  - pytorch=1.4
+  - pytorch=1.5
   - captum=0.2
     # Optimization-related stuff
   - ecos=2.0.7.post1
@@ -346,8 +346,8 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.44-cp37-none-linux_x86_64.whl
-      - jax==0.1.63
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.45-cp37-none-linux_x86_64.whl
+      - jax==0.1.64
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
