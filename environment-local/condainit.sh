@@ -60,7 +60,7 @@ CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall
 pip install git+https://github.com/hylang/hy.git
 pip install --upgrade --no-deps --pre cupy-cuda101
 #
-pip install --upgrade --no-deps git+https://github.com/google-research/flax.git
+pip install --upgrade --no-deps git+https://github.com/google/flax.git
 pip install --upgrade git+https://github.com/adamhaber/JaxEnt.git
 pip install --upgrade --no-deps --force learn2learn
 pip install --upgrade --no-deps --force cherry-rl

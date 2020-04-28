@@ -40,7 +40,7 @@ dependencies:
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
   - networkx=2.4
   # Pin FlatBuffers (req. by PyProb)
-  - flatbuffers=1.10
+  - flatbuffers=1.12
   # Pin ThinC dependencies
   - cython-blis=0.4.1
   - cymem=2.0.3
@@ -48,7 +48,7 @@ dependencies:
   - preshed=3.0.2
   - pydantic=1.5.1
   - wasabi=0.6
-  - immutables=0.11
+  - immutables=0.12
   # PyTorch and the like
   - pytorch=1.4
   - captum=0.2
