@@ -538,3 +538,4 @@ dependencies:
       - retry
       - mysql-connector-python
       - doltpy
+      - git+https://github.com/lucagrementieri/candlelight.git
