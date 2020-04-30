@@ -66,8 +66,6 @@ pip install --upgrade --no-deps --force learn2learn
 pip install --upgrade --no-deps --force cherry-rl
 pip install --upgrade --no-deps --force torchmeta
 #
-#pip install --pre azure
-#
 # TensorFlow stuff
 pip install "dm-sonnet>=2.0.0b0" --pre
 #
@@ -151,10 +149,6 @@ ln -s $(which gfortran-5) ./gfortran
 
 cd ..
 
-#pip install git+https://github.com/rusty1s/pytorch_scatter.git
-#pip install git+https://github.com/rusty1s/pytorch_sparse.git
-#pip install git+https://github.com/rusty1s/pytorch_cluster.git
-#pip install git+https://github.com/rusty1s/pytorch_spline_conv.git
 pip install torch-scatter
 pip install torch-sparse
 pip install torch-cluster

@@ -25,6 +25,8 @@ dependencies:
   - mkl-service
   - intel-openmp
   - mkl
+  - mkl_fft
+  - mkl_random
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
@@ -56,8 +58,13 @@ dependencies:
   - ecos=2.0.7.post1
   - scs=2
   # Minimal but useful TensorFlow 2+ setup
+  - _tflow_select=2.1.0=gpu
+  - tensorflow=2.1
+  - tensorflow-base=2.1
   - tensorflow-gpu=2.1
   - tensorflow-estimator=2.1
+  - keras-applications=1.0.8
+  - keras-preprocessing=1.1.0
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -67,6 +74,7 @@ dependencies:
   - appdirs
   - argh
   - args
+  - asn1crypto
   - async-timeout
   - atomicwrites
   - attrs
@@ -76,6 +84,7 @@ dependencies:
   - bayesian-optimization
   - bleach
   - blessings
+  - blinker
   - bokeh
   - botorch
   - category_encoders
@@ -115,6 +124,7 @@ dependencies:
   - flask-cors
   - funcsigs
   - future
+  - gast
   - gitdb2
   - gitpython
   - gpytorch
@@ -155,9 +165,11 @@ dependencies:
   - jupytext
   - kiwisolver
   - libjpeg-turbo
+  - libpng
   - Mako
   - MarkupSafe
   - matplotlib
+  - matplotlib-base
   - mistune
   - mkdocs
   - mock
@@ -179,6 +191,7 @@ dependencies:
   - notebook
   - numba
   - numpy
+  - numpy-base
   - oauthlib
   - onnx
   - opencv
@@ -194,6 +207,7 @@ dependencies:
   - pip
   - plotly
   - pluggy
+  - portalocker
   - PrettyTable
   - prometheus_client
   - promise
@@ -213,6 +227,7 @@ dependencies:
   - pyperclip
   - pyro4
   - pyrsistent
+  - pysocks
   - pytables
   - pytest
   - pytest-cov
@@ -241,6 +256,7 @@ dependencies:
   - setuptools
   - shortuuid
   - simplegeneric
+  - sip
   - six
   - skorch
   - skrebate
@@ -254,6 +270,7 @@ dependencies:
   - statsmodels
   - stevedore
   - tabulate
+  - tensorboard
   - tensorboardx
   - tensorly
   - termcolor
@@ -333,6 +350,7 @@ dependencies:
       - pyasn1-modules
       - rsa
       - google-auth
+      - google-auth-oauthlib
       - sentencepiece
       - py
       - cma
@@ -539,3 +557,6 @@ dependencies:
       - mysql-connector-python
       - doltpy
       - git+https://github.com/lucagrementieri/candlelight.git
+      - googleapis-common-protos
+      - tensorflow-metadata
+      - tensorflow-datasets
