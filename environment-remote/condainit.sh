@@ -62,7 +62,7 @@ pip install --upgrade --no-deps --force cherry-rl
 pip install --upgrade --no-deps --force torchmeta
 #
 # TensorFlow stuff
-pip install "dm-sonnet>=2.0.0b0" --pre
+pip install "dm-sonnet>=2.0" --pre
 #
 # Optimization-related stuff
 MARCH_NATIVE=1 OPENMP_FLAG="-fopenmp" pip install diffcp

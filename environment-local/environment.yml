@@ -30,7 +30,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.4.1
+  - redis-py=3.5.0
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -162,7 +162,6 @@ dependencies:
   - jupyterlab
   - jupyterlab_launcher
   - jupyterlab_server
-  - jupytext
   - kiwisolver
   - libjpeg-turbo
   - libpng
@@ -337,6 +336,7 @@ dependencies:
 
   - pip:
       # Keep in this order; add at the bottom.
+      - git+https://github.com/mwouts/jupytext.git
       - git+https://github.com/twiecki/CythonGSL.git
       - git+https://github.com/pytorch/ignite.git
       - git+https://github.com/pytorch/contrib.git
@@ -368,7 +368,7 @@ dependencies:
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
       - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.45-cp37-none-linux_x86_64.whl
-      - jax==0.1.64
+      - jax==0.1.65
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -560,3 +560,32 @@ dependencies:
       - googleapis-common-protos
       - tensorflow-metadata
       - tensorflow-datasets
+      - git+https://github.com/mmuckley/torchkbnufft.git
+      - tf_slim
+      - git+https://github.com/google-research/receptive_field.git
+      - python-utils
+      - progressbar2
+      - git+https://github.com/CEA-COSMIC/ModOpt.git
+      - git+https://github.com/aliutkus/torchsearchsorted.git
+      - git+https://github.com/aliutkus/torchpercentile.git
+      - git+https://github.com/aliutkus/torchinterp1d.git
+      - git+https://github.com/aliutkus/qsketch.git
+      - git+https://github.com/sytelus/pydotz.git
+      - git+https://github.com/microsoft/tensorwatch.git
+      - git+https://github.com/sytelus/timebudget.git
+      - git+https://github.com/fornaxai/receptivefield.git
+      - git+https://github.com/IvanoLauriola/MKLpy.git
+      - git+https://github.com/hassony2/libyana.git
+      - tensorflow-io==0.12.0
+      - typeguard
+      - tensorflow-addons==0.9.1
+      - tensorflow-text
+      - git+https://github.com/tensorflow/neural-structured-learning.git
+      - tf-agents
+      - tensorflow-model-optimization
+      - tensorflow-lattice
+      - git+https://github.com/google/dopamine.git
+      - git+https://github.com/jonasrauber/attax.git
+      - git+https://github.com/deepmind/trfl.git
+      - git+https://github.com/deepmind/graph_nets.git
+      - git+https://github.com/google-research/tensorflow_constrained_optimization.git
