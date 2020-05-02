@@ -72,7 +72,7 @@ dependencies:
   - notebook>=6
   - xeus-python>=0.7.1
   - ptvsd
-  - arviz>=0.7
+  #  - arviz>=0.7
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -344,31 +344,31 @@ dependencies:
   - pathspec
   - fsspec
   - typed-ast
-  - jupyter-server-proxy
+  #  - jupyter-server-proxy
   - param
   - pyviz_comms
-  - pyct
-  - colorcet
-  - nbsite
-  - pyviz
-  - markdown
+  #  - pyct
+  #  - colorcet
+  #  - nbsite
+  #  - pyviz
+  #  - markdown
   - panel
   - datashape
   - holoviews
   - xxhash
   - python-xxhash
-  - fastparquet
-  - partd
-  - s3fs
-  - datashader
-  - holoviz
-  - django
-  - sphinx_holoviz_theme
-  - sphinx_ioam_theme
-  - jupyter_bokeh
-  - hvplot
-  - spatialpandas
-  - netcdf4
+  #  - fastparquet
+  #  - partd
+  #  - s3fs
+  #  - datashader
+  #  - holoviz
+  #  - django
+  #  - sphinx_holoviz_theme
+  #  - sphinx_ioam_theme
+  #  - jupyter_bokeh
+  #  - hvplot
+  #  - spatialpandas
+  #  - netcdf4
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -660,4 +660,4 @@ dependencies:
       - azure-storage-blob
       - papermill
       - nteract-scrapbook
-      - git+https://github.com/holoviz/jupyter-panel-proxy.git
+#      - git+https://github.com/holoviz/jupyter-panel-proxy.git
