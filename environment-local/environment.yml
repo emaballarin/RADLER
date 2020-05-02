@@ -65,6 +65,11 @@ dependencies:
   - tensorflow-estimator=2.1
   - keras-applications=1.0.8
   - keras-preprocessing=1.1.0
+  # Jupyter Lab
+  - jupyterlab>=2
+  - notebook>=6
+  - xeus-python>=0.7.1
+  - ptvsd
   ### UNPINNED ###
   # All the rest; add alphabetically.
   - absl-py
@@ -126,6 +131,7 @@ dependencies:
   - future
   - gast
   - gitdb2
+  - gitdb
   - gitpython
   - gpytorch
   - graphene
@@ -159,7 +165,6 @@ dependencies:
   - jupyter_client
   - jupyter_console
   - jupyter_core
-  - jupyterlab
   - jupyterlab_launcher
   - jupyterlab_server
   - kiwisolver
@@ -182,12 +187,12 @@ dependencies:
   - mypy
   - mypy_extensions
   - nb_conda_kernels
+  - nbclient
   - nbconvert
   - nbformat
   - netifaces
   - nlopt
   - nose
-  - notebook
   - numba
   - numpy
   - numpy-base
@@ -260,6 +265,7 @@ dependencies:
   - skorch
   - skrebate
   - smmap2
+  - smmap
   - spacy
   - srsly
   - structlog
@@ -327,6 +333,14 @@ dependencies:
   - jupyterthemes
   - jupyter_nbextensions_configurator
   - mpmath
+  - python-language-server
+  - pylint
+  - astroid
+  - lazy-object-proxy
+  - tenacity
+  - pathspec
+  - fsspec
+  - typed-ast
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -589,3 +603,32 @@ dependencies:
       - git+https://github.com/deepmind/trfl.git
       - git+https://github.com/deepmind/graph_nets.git
       - git+https://github.com/google-research/tensorflow_constrained_optimization.git
+      - jupyter-lsp
+      - nbdime
+      - jupyterlab-git
+      - model-pruning-google-research
+      - waymo-open-dataset-tf-2-1-0
+      - lingvo
+      - tensorflow_hub
+      - git+https://github.com/tensorflow/gan.git
+      - git+https://github.com/microsoft/onnxconverter-common.git
+      - fire
+      - git+https://github.com/onnx/keras-onnx
+      - onnxruntime-gpu
+      - git+https://github.com/onnx/tensorflow-onnx
+      - skl2onnx
+      - git+https://github.com/onnx/onnxmltools.git
+      - mccabe
+      - metaflow
+      - nteract_on_jupyter
+      - msrest
+      - textwrap3
+      - toml
+      - ansiwrap
+      - black
+      - gcsfs
+      - azure-core
+      - azure-datalake-store
+      - azure-storage-blob
+      - papermill
+      - nteract-scrapbook

@@ -81,12 +81,15 @@ jupyter labextension install @jupyter-widgets/jupyterlab-manager --no-build
 jupyter labextension install plotlywidget --no-build
 jupyter labextension install jupyterlab-plotly --no-build
 jupyter labextension install @lckr/jupyterlab_variableinspector
+jupyter labextension install @krassowski/jupyterlab-lsp
+jupyter labextension install @jupyterlab/debugger
 #
 jupyter lab build
 ##
 #
 pip install --upgrade jupyter_http_over_ws
 jupyter serverextension enable --py jupyter_http_over_ws
+jupyter serverextension enable nteract_on_jupyter
 #
 ##
 
