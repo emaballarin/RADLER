@@ -88,6 +88,7 @@ jupyter labextension install jupyterlab-plotly --no-build
 jupyter labextension install @lckr/jupyterlab_variableinspector
 jupyter labextension install @krassowski/jupyterlab-lsp
 jupyter labextension install @jupyterlab/debugger
+jupyter labextension install @pyviz/jupyterlab_pyviz
 #
 jupyter lab build
 ##
