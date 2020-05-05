@@ -17,6 +17,7 @@ channels:
   - comet_ml
   - cvxgrp
   - intel
+  - nlesc
 
 dependencies:
   ### LATEST-PINNED ###
@@ -358,7 +359,7 @@ dependencies:
   - xxhash
   - python-xxhash
   #  - fastparquet
-  #  - partd
+  - partd
   #  - s3fs
   #  - datashader
   #  - holoviz
@@ -369,6 +370,9 @@ dependencies:
   #  - hvplot
   #  - spatialpandas
   #  - netcdf4
+  - locket
+  - palettable
+  - xenon-cli
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -660,4 +664,9 @@ dependencies:
       - azure-storage-blob
       - papermill
       - nteract-scrapbook
-#      - git+https://github.com/holoviz/jupyter-panel-proxy.git
+      #      - git+https://github.com/holoviz/jupyter-panel-proxy.git
+      - configargparse
+      - strconv
+      - inputimeout
+      - git+https://github.com/ferrine/exman.git
+      - geomloss
