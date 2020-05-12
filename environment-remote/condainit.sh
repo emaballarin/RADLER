@@ -51,7 +51,8 @@ source "$HOME/$ANACONDA_BASEDIR_NAME/bin/deactivate"
 source "$HOME/$ANACONDA_BASEDIR_NAME/bin/activate" $ANACONDA_ENV_NAME
 pip install git+https://github.com/SurrealAI/torchx-public.git
 pip install --no-cache-dir --upgrade --no-deps --force-reinstall git+https://github.com/williamFalcon/pytorch-lightning.git
-CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
+#CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile pillow-simd
+CC="gcc -mavx2" pip install --no-cache-dir --upgrade --no-deps --force-reinstall --no-binary :all: --compile https://github.com/uploadcare/pillow-simd.git
 pip install git+https://github.com/hylang/hy.git
 pip install --upgrade --no-deps --pre cupy-cuda101
 #

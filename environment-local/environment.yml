@@ -2,8 +2,8 @@ name: radler-local
 
 channels:
   # Keep in this order!
-  - fastai
   - pytorch
+  - fastai
   - defaults
   - conda-forge
   - gpytorch
@@ -33,7 +33,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.5.0
+  - redis-py=3.5.1
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -41,7 +41,7 @@ dependencies:
   # Pin opt_einsum to a tagged version, synced with the latest version
   - opt_einsum=3.2.1
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
-  - pillow=7.0
+  - pillow=7.1.2
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
   - networkx=2.4
   # Pin FlatBuffers (req. by PyProb)
@@ -374,6 +374,66 @@ dependencies:
   - palettable
   # - xenon-cli
   - spyder-kernels
+  # ###
+  # COURTESY OF QUANTYCA
+  - aliyun-python-sdk-core
+  - aliyun-python-sdk-kms
+  - azure-common
+  - azure-nspkg
+  - azure-storage-blob
+  - azure-storage-common
+  - google-api-core
+  - google-cloud-core
+  - google-cloud-storage
+  - google-resumable-media
+  - googleapis-common-protos
+  - bcolz
+  - bcrypt
+  - blosc
+  - bottleneck
+  - brotli
+  - crcmod
+  - cytoolz
+  - distro
+  - double-conversion
+  - dvc
+  - flufl.lock
+  - fribidi
+  - funcy
+  - glog
+  - gmp
+  - grandalf
+  - grpc-cpp
+  - inflect
+  - jsonpath-ng
+  - libopencv
+  - libprotobuf
+  - libuuid
+  - ruamel
+  - ruamel.yaml
+  - msgpack-numpy
+  - msgpack-python
+  - nanotime
+  - _py-xgboost-mutex
+  - libxgboost
+  - py-xgboost
+  - xgboost
+  - numexpr
+  - olefile
+  - oss2
+  - paramiko
+  - pcre
+  - pixman
+  - py-opencv
+  - pycryptodome
+  - pyopenssl
+  - re2
+  - schema
+  - snappy
+  - treelib
+  - ujson
+  - zc.lockfile
+  - zeromq
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -414,8 +474,8 @@ dependencies:
       - optuna
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
-      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.46-cp37-none-linux_x86_64.whl
-      - jax==0.1.66
+      - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.47-cp37-none-linux_x86_64.whl
+      - jax==0.1.67
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -662,7 +722,6 @@ dependencies:
       - gcsfs
       - azure-core
       - azure-datalake-store
-      - azure-storage-blob
       - papermill
       - nteract-scrapbook
       #      - git+https://github.com/holoviz/jupyter-panel-proxy.git
@@ -671,3 +730,6 @@ dependencies:
       - inputimeout
       - git+https://github.com/ferrine/exman.git
       - geomloss
+      - isoweek
+      - pandas-summary
+      - sklearn-pandas
