@@ -733,3 +733,4 @@ dependencies:
       - isoweek
       - pandas-summary
       - sklearn-pandas
+      - dpath
