@@ -734,3 +734,5 @@ dependencies:
       - pandas-summary
       - sklearn-pandas
       - dpath
+      - git+https://github.com/bkkaggle/pytorch_zoo.git
+      - git+https://github.com/facebookresearch/PyTorch-BigGraph.git
