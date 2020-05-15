@@ -33,7 +33,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.5.1
+  - redis-py=3.5.2
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -53,7 +53,7 @@ dependencies:
   - preshed=3.0.2
   - pydantic=1.5.1
   - wasabi=0.6
-  - immutables=0.12
+  - immutables=0.13
   # PyTorch and the like
   - pytorch=1.4
   - captum=0.2
@@ -534,7 +534,7 @@ dependencies:
       - git+https://github.com/wookayin/gpustat.git
       - git+https://github.com/ahug/setGPU.git
       - flask-graphql
-      - wandb
+      - git+https://github.com/wandb/client.git
       - git+https://github.com/drvinceknight/Nashpy.git
       - git+https://github.com/automl/ConfigSpace.git
       - pynisher
@@ -736,3 +736,18 @@ dependencies:
       - dpath
       - git+https://github.com/bkkaggle/pytorch_zoo.git
       - git+https://github.com/facebookresearch/PyTorch-BigGraph.git
+      - krbticket
+      - git+https://github.com/pfnet/pfio.git
+      - git+https://github.com/pfnet/pytorch-pfn-extras.git
+      - kubernetes
+      - minio
+      - sh
+      - git+https://github.com/wandb/client-ng.git
+      - SecretStorage
+      - jeepney
+      - keyring
+      - matrix-client
+      - python-telegram-bot
+      - twilio
+      - yagmail
+      - git+https://github.com/huggingface/knockknock.git
