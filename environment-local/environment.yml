@@ -41,7 +41,7 @@ dependencies:
   # Pin opt_einsum to a tagged version, synced with the latest version
   - opt_einsum=3.2.1
   # Pin PIL/Pillow to the same version as pillow-simd (must be hand-picked).
-  - pillow=7.1.2
+  - pillow=7.0
   # Pin NetworkX to version 2.2 (req. by HyperOpt)
   - networkx=2.4
   # Pin FlatBuffers (req. by PyProb)
