@@ -70,7 +70,11 @@ MARCH_NATIVE=1 OPENMP_FLAG="-fopenmp" pip install diffcp
 pip install git+https://github.com/cvxgrp/cvxpylayers.git
 pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 #
-
+#
+# Chainer remnants & co.
+pip install --upgrade chainer --pre
+pip install --upgrade git+https://github.com/cybertronai/pytorch-sso.git
+#
 # Jupinx/QuantEcon stack
 ##
 pip install --no-deps sphinxcontrib-jupyter

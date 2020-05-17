@@ -374,6 +374,8 @@ dependencies:
   - palettable
   # - xenon-cli
   - spyder-kernels
+  - distlib
+  - pkginfo
   # ###
   # COURTESY OF QUANTYCA
   - aliyun-python-sdk-core
@@ -751,3 +753,11 @@ dependencies:
       - twilio
       - yagmail
       - git+https://github.com/huggingface/knockknock.git
+      - git+https://github.com/cybertronai/autograd-lib.git
+      - mpi4py
+      - daemonize
+      - tabview
+      - markdown
+      - tensorboard-plugin-wit
+      - virtualenv
+      - guildai
