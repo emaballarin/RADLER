@@ -477,7 +477,7 @@ dependencies:
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
       - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.47-cp37-none-linux_x86_64.whl
-      - jax==0.1.67
+      - jax==0.1.68
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -762,3 +762,9 @@ dependencies:
       - tensorboard-plugin-wit
       - virtualenv
       - guildai
+      - git+https://github.com/emaballarin/pyromaniac.git
+      - LunarCalendar
+      - convertdate
+      - holidays
+      - setuptools-git
+      - fbprophet
