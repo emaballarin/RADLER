@@ -6,9 +6,9 @@ export ANACONDA_ENV_NAME="radler-remote"
 
 export PORTABLECUDA_ROOT="$HOME/portablecuda/10.1.243/"
 #   A directory which contains the root-level installation of:
-#   -> CUDA Toolkit for Linux, v. 10.1.243
-#   -> CUDNN for Linux, v. 7.5.1 for CUDA 10.1
-#   -> NCCL for Linux, v. 2.4.8 for CUDA 10.1
+#   -> CUDA Toolkit for Linux, v. 10.2.89
+#   -> CUDNN for Linux, v. 7.6.5 for CUDA 10.2
+#   -> NCCL for Linux, v. 2.6.4 for CUDA 10.2
 #   and the /lib64/ directory renamed to (and merged with) /lib/.
 
 export ANACONDA_BASEDIR_NAME="anaconda3"

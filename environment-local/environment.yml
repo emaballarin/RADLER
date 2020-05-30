@@ -23,6 +23,8 @@ dependencies:
   ### LATEST-PINNED ###
   # Keep Python pinned, but in sync with latest version.!
   - python=3.7.7
+  # Sync with system CUDA
+  - cudatoolkit=10.1
   # Use MKL to provide BLAS, latest version from the defaults channel.
   - blas=*=mkl
   - mkl-service
@@ -30,6 +32,7 @@ dependencies:
   - mkl
   - mkl_fft
   - mkl_random
+  - libgomp
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
@@ -55,17 +58,17 @@ dependencies:
   - wasabi=0.6
   - immutables=0.14
   # PyTorch and the like
-  - pytorch=1.4
+  - pytorch=1.5
   - captum=0.2
     # Optimization-related stuff
   - ecos=2.0.7.post1
   - scs=2
   # Minimal but useful TensorFlow 2+ setup
-  - _tflow_select=2.1.0=gpu
-  - tensorflow=2.1
-  - tensorflow-base=2.1
-  - tensorflow-gpu=2.1
-  - tensorflow-estimator=2.1
+  - _tflow_select=2.2.0=gpu
+  - tensorflow=2.2
+  - tensorflow-base=2.2
+  - tensorflow-gpu=2.2
+  - tensorflow-estimator=2.2
   - keras-applications=1.0.8
   - keras-preprocessing=1.1.0
   # Jupyter Lab
@@ -488,8 +491,7 @@ dependencies:
       - observations
       - unification
       - git+https://github.com/pyro-ppl/pyro-api.git
-      #- git+https://github.com/pyro-ppl/pyro.git
-      - pyro-ppl==1.3.1
+      - git+https://github.com/pyro-ppl/pyro.git
       - git+https://github.com/pyro-ppl/numpyro.git
       - git+https://github.com/pyro-ppl/funsor.git
       - git+https://github.com/pyro-ppl/brmp.git
@@ -687,9 +689,9 @@ dependencies:
       - git+https://github.com/fornaxai/receptivefield.git
       - git+https://github.com/IvanoLauriola/MKLpy.git
       - git+https://github.com/hassony2/libyana.git
-      - tensorflow-io==0.12.0
+      - tensorflow-io==0.13.0
       - typeguard
-      - tensorflow-addons==0.9.1
+      - tensorflow-addons==0.10.0
       - tensorflow-text
       - git+https://github.com/tensorflow/neural-structured-learning.git
       - tf-agents
@@ -704,7 +706,7 @@ dependencies:
       - nbdime
       - jupyterlab-git
       - model-pruning-google-research
-      - waymo-open-dataset-tf-2-1-0
+      - waymo-open-dataset-tf-2-2-0
       - lingvo
       - tensorflow_hub
       - git+https://github.com/tensorflow/gan.git
