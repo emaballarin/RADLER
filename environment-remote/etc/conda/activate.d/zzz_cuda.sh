@@ -33,5 +33,18 @@ export HOROVOD_NCCL_HOME="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME"
 export HOROVOD_NCCL_INCLUDE="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/include"
 export HOROVOD_NCCL_LIB="$HOME/$ANACONDA_BASEDIR_NAME/envs/$ANACONDA_ENV_NAME/lib"
 export MKL_THREADING_LAYER="GNU"
+
+################################################
+### A note about the OpenMP threading layer. ###
+################################################
+
+# Unattended procedures: GNU
+#                        It's pytorch-safe, but numpy will use INTEL anyway.
+#
+# Performance-sensitive: INTEL
+#                        Always import numpy at the top of the code (even if not needed)!
+
+
+
 #export MKL_THREADING_LAYER="INTEL"
 #unset MKL_SERVICE_FORCE_INTEL

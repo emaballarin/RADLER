@@ -75,6 +75,11 @@ pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 pip install --upgrade chainer --pre
 pip install --upgrade git+https://github.com/cybertronai/pytorch-sso.git
 #
+#
+# WESSELB
+pip install git+https://github.com/wesselb/matrix.git git+https://github.com/wesselb/wbml.git git+https://github.com/wesselb/stheno.git git+https://github.com/wesselb/varz.git
+pip install git+https://github.com/wesselb/matrix.git git+https://github.com/wesselb/wbml.git git+https://github.com/wesselb/stheno.git git+https://github.com/wesselb/varz.git
+#
 # Jupinx/QuantEcon stack
 ##
 pip install --no-deps sphinxcontrib-jupyter
@@ -96,6 +101,10 @@ jupyter lab build
 pip install --upgrade jupyter_http_over_ws
 jupyter serverextension enable --py jupyter_http_over_ws
 jupyter serverextension enable nteract_on_jupyter
+jupyter serverextension enable elyra
+#
+jupyter lab build
+##
 #
 ##
 

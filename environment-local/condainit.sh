@@ -80,6 +80,11 @@ pip install git+https://github.com/cvxgrp/cvxpyrepair.git
 pip install --upgrade chainer --pre
 pip install --upgrade git+https://github.com/cybertronai/pytorch-sso.git
 #
+#
+# WESSELB
+pip install git+https://github.com/wesselb/matrix.git git+https://github.com/wesselb/wbml.git git+https://github.com/wesselb/stheno.git git+https://github.com/wesselb/varz.git
+pip install git+https://github.com/wesselb/matrix.git git+https://github.com/wesselb/wbml.git git+https://github.com/wesselb/stheno.git git+https://github.com/wesselb/varz.git
+#
 # Jupinx/QuantEcon stack
 ##
 pip install --no-deps sphinxcontrib-jupyter
@@ -101,7 +106,36 @@ jupyter lab build
 pip install --upgrade jupyter_http_over_ws
 jupyter serverextension enable --py jupyter_http_over_ws
 jupyter serverextension enable nteract_on_jupyter
+jupyter serverextension enable elyra
 #
+#
+jupyter lab build
+#
+# FEniCS
+#
+#git clone https://bitbucket.org/fenics-project/dolfin
+#git clone https://bitbucket.org/fenics-project/mshr
+#git clone https://github.com/FEniCS/dolfinx.git
+#mkdir dolfin/build
+#cd dolfin/build
+#ccmake ../
+#sudo make install -j12
+#cd ../..
+#mkdir mshr/build
+#cd mshr/build
+#ccmake ../
+#sudo make install -j12
+#cd ../..
+#cd dolfin/python
+#pip3 install . --upgrade --no-deps
+#cd ../..
+#cd mshr/python
+#pip3 install . --upgrade --no-deps
+#cd ../..
+##
+#bash -c "read -p 'Ready to continue...? [ENTER]'"
+#
+##
 ##
 # NOTE: moved down; just look after the gcc-7 trick (1st of the two blocks).
 #pip install --upgrade --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" git+https://github.com/NVIDIA/apex.git

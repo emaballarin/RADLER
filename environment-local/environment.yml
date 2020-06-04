@@ -36,7 +36,7 @@ dependencies:
   # Pin OSQP to the latest version (must be hand-picked) from the dedicated channel.
   - osqp=0.6.1
   # Pin redis-py to latest version (must be hand-picked) from conda-forge
-  - redis-py=3.5.2
+  - redis-py=3.5.3
   ### BOUND-PINNED ###
   # Pin tqdm for PyTorch Lightning
   - tqdm>=4.35
@@ -64,7 +64,7 @@ dependencies:
   - ecos=2.0.7.post1
   - scs=2
   # Minimal but useful TensorFlow 2+ setup
-  - _tflow_select=2.2.0=gpu
+  #  - _tflow_select=2.2.0=gpu
   - tensorflow=2.2
   - tensorflow-base=2.2
   - tensorflow-gpu=2.2
@@ -75,6 +75,16 @@ dependencies:
   - jupyterlab>=2
   - notebook>=6
   - xeus-python>=0.7.1
+  # FEniCS
+  - fenics-fiat
+  - fenics-dijitso
+  - fenics-ufl
+  - fenics-ffc
+  - fenics
+  - fenics-libdolfin
+  - fenics-dolfin
+  - dolfin-adjoint
+  #
   - ptvsd
   #  - arviz>=0.7
   ### UNPINNED ###
@@ -352,7 +362,7 @@ dependencies:
   - param
   - pyviz_comms
   #  - pyct
-  #  - colorcet
+  - colorcet
   #  - nbsite
   #  - pyviz
   #  - markdown
@@ -364,12 +374,12 @@ dependencies:
   #  - fastparquet
   - partd
   #  - s3fs
-  #  - datashader
+  - datashader
   #  - holoviz
   #  - django
   #  - sphinx_holoviz_theme
   #  - sphinx_ioam_theme
-  #  - jupyter_bokeh
+  - jupyter_bokeh
   #  - hvplot
   #  - spatialpandas
   #  - netcdf4
@@ -414,6 +424,7 @@ dependencies:
   - libopencv
   - libprotobuf
   - libuuid
+  - llvmlite
   - ruamel
   - ruamel.yaml
   - msgpack-numpy
@@ -439,6 +450,8 @@ dependencies:
   - ujson
   - zc.lockfile
   - zeromq
+  - vaex
+  - pep517
 
   # NOTE:
   # Due to peculiar packaging of Anaconda's `opt-einsum`, the package gets reinstalled
@@ -480,7 +493,7 @@ dependencies:
       - https://s3-us-west-2.amazonaws.com/ray-wheels/latest/ray-0.9.0.dev0-cp37-cp37m-manylinux1_x86_64.whl
       - git+https://github.com/Luolc/AdaBound.git
       - https://storage.googleapis.com/jax-releases/cuda101/jaxlib-0.1.47-cp37-none-linux_x86_64.whl
-      - jax==0.1.68
+      - jax==0.1.69
       - randomgen
       - git+https://github.com/BorealisAI/advertorch.git
       - git+https://github.com/bethgelab/foolbox.git
@@ -770,3 +783,72 @@ dependencies:
       - holidays
       - setuptools-git
       - fbprophet
+      - git+https://github.com/wesselb/plum.git
+      - python-slugify
+      - text-unidecode
+      - git+https://github.com/wesselb/fdm.git
+      - git+https://github.com/wesselb/lab.git
+      - git+https://github.com/wesselb/algebra.git
+      - cftime
+      - netCDF4
+      - git+https://github.com/wesselb/gpcm.git
+      - virtualenv-clone
+      - virtualenvwrapper
+      - pycodestyle
+      - autopep8
+      - pyflakes
+      - flake8
+      - pep8
+      - yapf
+      - git+https://github.com/wesselb/gpar.git
+      - pyshp
+      - git+https://github.com/cambridge-mlg/cnn-gp.git
+      - tbb
+      - git+https://github.com/lmcinnes/pynndescent.git
+      - git+https://github.com/lmcinnes/umap.git
+      - git+https://github.com/DistrictDataLabs/yellowbrick.git
+      - git+https://github.com/has2k1/mizani.git
+      - git+https://github.com/has2k1/scikit-misc.git
+      - git+https://github.com/has2k1/plotnine.git
+      - git+https://github.com/firmai/pandasvault.git
+      - git+https://github.com/ml31415/numpy-groupies.git
+      - zope.interface
+      - datetime
+      - git+https://github.com/firmai/pandapy.git
+      - git+https://github.com/pydata/pandas-datareader.git
+      - algopy
+      - git+https://github.com/pbrod/numdifftools.git
+      - git+https://github.com/RJT1990/pyflux.git
+      - git+https://github.com/marcotcr/lime.git
+      - git+https://github.com/slundberg/shap.git
+      - git+https://github.com/blue-yonder/tsfresh.git
+      - git+https://github.com/seninp/saxpy.git
+      - git+https://github.com/Project-Platypus/Platypus.git
+      - git+https://github.com/joferkington/mpldatacursor.git
+      - git+https://github.com/Project-Platypus/PRIM.git
+      - git+https://github.com/SALib/SALib.git
+      - git+https://github.com/clicumu/pyDOE2.git
+      - git+https://github.com/OpenMDAO/OpenMDAO.git
+      - git+https://github.com/Project-Platypus/Rhodium.git
+      - git+https://github.com/alkaline-ml/pmdarima.git
+      - git+https://github.com/lab-ml/labml.git
+      - git+https://github.com/lab-ml/dashboard.git
+      - pycairo
+      - texttable
+      - git+https://github.com/igraph/python-igraph.git
+      - git+https://github.com/pik-copan/pyunicorn.git
+      - git+https://github.com/rtqichen/torchdiffeq.git
+      - git+https://github.com/emaballarin/augmented-neural-odes.git
+      - rfc3986-validator
+      - Deprecated
+      - requests-toolbelt
+      - strip-hints
+      - kfp-server-api
+      - kfp
+      - git+https://github.com/elyra-ai/kfp-notebook.git
+      - git+https://github.com/elyra-ai/elyra.git
+      - git+https://github.com/bmcage/odes.git
+#      - git+https://github.com/FEniCS/fiat.git
+#      - git+https://bitbucket.org/fenics-project/dijitso.git
+#      - git+https://github.com/FEniCS/ufl.git
+#      - git+https://bitbucket.org/fenics-project/ffc.git
