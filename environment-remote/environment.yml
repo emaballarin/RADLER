@@ -779,7 +779,10 @@ dependencies:
       - convertdate
       - holidays
       - setuptools-git
-      - fbprophet
+      - ephem
+      - pymeeus
+      - korean-lunar-calendar
+      - https://ballarin.cc/mirrorsrv/wheels/fbprophet-0.6-py3-none-any.whl
       - git+https://github.com/wesselb/plum.git
       - python-slugify
       - text-unidecode
@@ -830,9 +833,8 @@ dependencies:
       - git+https://github.com/alkaline-ml/pmdarima.git
       - git+https://github.com/lab-ml/labml.git
       - git+https://github.com/lab-ml/dashboard.git
-      - pycairo
       - texttable
-      - git+https://github.com/igraph/python-igraph.git
+      - python-igraph
       - git+https://github.com/pik-copan/pyunicorn.git
       - git+https://github.com/rtqichen/torchdiffeq.git
       - git+https://github.com/emaballarin/augmented-neural-odes.git
@@ -844,4 +846,3 @@ dependencies:
       - kfp
       - git+https://github.com/elyra-ai/kfp-notebook.git
       - git+https://github.com/elyra-ai/elyra.git
-      - git+https://github.com/bmcage/odes.git
