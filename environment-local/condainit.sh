@@ -192,10 +192,10 @@ ln -s $(which gfortran-5) ./gfortran
 
 cd ..
 
-pip install torch-scatter
-pip install torch-sparse
-pip install torch-cluster
-pip install torch-spline-conv
+pip install https://pytorch-geometric.com/whl/torch-1.5.0/torch_scatter-latest%2Bcu101-cp37-cp37m-linux_x86_64.whl
+pip install https://pytorch-geometric.com/whl/torch-1.5.0/torch_sparse-latest%2Bcu101-cp37-cp37m-linux_x86_64.whl
+pip install https://pytorch-geometric.com/whl/torch-1.5.0/torch_cluster-latest%2Bcu101-cp37-cp37m-linux_x86_64.whl
+pip install https://pytorch-geometric.com/whl/torch-1.5.0/torch_spline_conv-latest%2Bcu101-cp37-cp37m-linux_x86_64.whl
 pip install git+https://github.com/rusty1s/pytorch_geometric.git
 
 export PATH="$PTG_PREPATH"
