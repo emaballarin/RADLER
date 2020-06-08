@@ -451,7 +451,17 @@ dependencies:
   - ujson
   - zc.lockfile
   - zeromq
-  - vaex
+  #
+  - vaex=3
+  - vaex-core=2.0.2
+  - vaex-astro=0.7
+  - vaex-hdf5=0.6
+  - vaex-viz=0.4
+  - vaex-jupyter=0.5.1.post0
+  - vaex-arrow=0.5.1
+  - vaex-server=0.3.1
+  - vaex-ml=0.10
+  #
   - pep517
 
   # NOTE:
@@ -846,3 +856,5 @@ dependencies:
       - kfp
       - git+https://github.com/elyra-ai/kfp-notebook.git
       - git+https://github.com/elyra-ai/elyra.git
+      - git+https://github.com/rasbt/watermark.git
+      - git+https://github.com/rasbt/mlxtend.git
